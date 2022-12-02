@@ -6,8 +6,6 @@ namespace UltimateSurvival
 {
 	public class MouseLook : PlayerBehaviour
 	{
-        #region PC
-
         [Header("   PC settings")]
 
         [SerializeField]
@@ -58,6 +56,8 @@ namespace UltimateSurvival
 
 #if UNITY_EDITOR
 
+        #region PC
+
         private void Start()
         {
             if (!m_LookRoot)
@@ -65,6 +65,14 @@ namespace UltimateSurvival
                 Debug.LogErrorFormat(this, "Assign the look root in the inspector!", name);
                 enabled = false;
             }
+        }
+
+        private void Update()
+        {
+            if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
+                LookAround();
+
+            Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
         }
 
         /// <summary>
@@ -134,9 +142,9 @@ namespace UltimateSurvival
             m_CurrentMouseLook = average / averageTotal;
         }
 
-#endif
-
         #endregion
+
+#else
 
         #region Mobile
 
@@ -150,9 +158,25 @@ namespace UltimateSurvival
 
         public FixedTouchField touch;
 
+        private void Update()
+        {
+            Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
+            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
+            frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+            velocity += frameVelocity;
+            velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+
+            transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
+            character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+        }
+
         #endregion
 
-        private bool isPC = false;
+#endif
+
+
+
+        private bool isPC;
 
         private void Awake()
         {
@@ -164,29 +188,6 @@ namespace UltimateSurvival
             #endif
 
             InventoryController.Instance.State.AddChangeListener(OnChanged_InventoryState);
-
-        }
-
-        private void Update()
-        {
-            if (isPC)
-            {
-                if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
-                    LookAround();
-
-                Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
-            }
-            else
-            {
-                Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
-                Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-                frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-                velocity += frameVelocity;
-                velocity.y = Mathf.Clamp(velocity.y, -90, 90);
-
-                transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
-                character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
-            }
 
         }
 
