@@ -29,16 +29,10 @@ namespace UltimateSurvival
 
 		[Header("General")]
 
-		[SerializeField]
-		private float m_DrawSpeed = 1f;
-
-		[SerializeField]
-		private float m_HolsterSpeed = 1f;
+		//[SerializeField]
+		//private float m_DrawSpeed = 1f;
 
 		private FPObject m_Object;
-
-		private bool m_Initialized;
-
 
 		protected virtual void Awake()
 		{
@@ -49,16 +43,16 @@ namespace UltimateSurvival
 			Player.Sleep.AddStopListener(OnStop_Sleep);
 			Player.Respawn.AddListener(On_Respawn);
 
-			m_Animator.SetFloat("Draw Speed", m_DrawSpeed);
-			m_Animator.SetFloat("Holster Speed", m_HolsterSpeed);
+			//m_Animator.SetFloat("Draw Speed", m_DrawSpeed);
+			//m_Animator.SetFloat("Holster Speed", m_HolsterSpeed);
 		}
 
 		protected virtual void OnValidate()
 		{
 			if(FPObject && FPObject.IsEnabled && Animator)
 			{
-				m_Animator.SetFloat("Draw Speed", m_DrawSpeed);
-				m_Animator.SetFloat("Holster Speed", m_HolsterSpeed);
+				//m_Animator.SetFloat("Draw Speed", m_DrawSpeed);
+				//m_Animator.SetFloat("Holster Speed", m_HolsterSpeed);
 			}
 		}
 	

@@ -8,10 +8,6 @@ namespace UltimateSurvival
 	public class FPHitscanAnimator : FPAnimator 
 	{
 		[Header("Hitscan")]
-
-		[SerializeField]
-		private float m_FireSpeed = 1f;
-
 		[SerializeField]
 		[Clamp(0, 10)]
 		private int m_FireTypesCount = 1;
@@ -34,7 +30,7 @@ namespace UltimateSurvival
 				m_Hitscan = FPObject as FPHitscan;
 				
 				m_Hitscan.Attack.AddListener(On_GunFired);
-				Animator.SetFloat("Fire Speed", m_FireSpeed);
+				//Animator.SetFloat("Fire Speed", m_FireSpeed);
 			}
 			else
 				Debug.LogError("The animator is of type Hitscan, but no Hitscan script found on this game object!", this);
@@ -44,8 +40,8 @@ namespace UltimateSurvival
 		{
 			base.OnValidate();
 
-			if(FPObject && FPObject.IsEnabled && Animator)
-				Animator.SetFloat("Fire Speed", m_FireSpeed);
+			if(FPObject && FPObject.IsEnabled && Animator) { }
+				//Animator.SetFloat("Fire Speed", m_FireSpeed);
 		}
 
 		private void OnStart_Aim()

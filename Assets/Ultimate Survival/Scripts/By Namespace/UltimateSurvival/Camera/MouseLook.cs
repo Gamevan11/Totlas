@@ -4,11 +4,33 @@ using UnityEngine;
 
 namespace UltimateSurvival
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class MouseLook : PlayerBehaviour
 	{
+        private void Awake()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        private void Update()
+        {
+            if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
+                LookAround();
+
+            Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
+
+            //
+
+            //Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
+            //Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
+            //frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+            //velocity += frameVelocity;
+            //velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+
+            //transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
+            //character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+        }
+
         #region PC
 
         [Header("   PC settings")]
@@ -23,14 +45,6 @@ namespace UltimateSurvival
         [SerializeField]
         [Tooltip("The up & down rotation will be inverted, if checked.")]
         private bool m_Invert;
-
-        [SerializeField]
-        [Tooltip("If checked, a button will show up which can lock the cursor.")]
-        private bool m_ShowLockButton = true;
-
-        [SerializeField]
-        [Tooltip("If checked, you can unlock the cursor by pressing the Escape / Esc key.")]
-        private bool m_CanUnlock = true;
 
         [Header("Motion")]
 
@@ -97,41 +111,6 @@ namespace UltimateSurvival
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-        }
-
-        private void OnGUI()
-        {
-            if (!m_ShowLockButton)
-                return;
-
-            Vector2 buttonSize = new Vector2(256f, 24f);
-
-            // NOTE: While in Unity Editor, pressing Esc will always unlock the cursor.
-            if (Event.current.type == EventType.KeyDown && m_CanUnlock)
-            {
-                if (Event.current.keyCode == KeyCode.Escape)
-                {
-                    Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
-                }
-            }
-
-            if (Cursor.lockState == CursorLockMode.None && !m_InventoryIsOpen)
-            {
-                if (GUI.Button(new Rect(Screen.width * 0.5f - buttonSize.x / 2f, 16f, buttonSize.x, buttonSize.y), "Lock Cursor (Hit 'Esc' to unlock)"))
-                {
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
-            }
-        }
-
-        private void Update()
-        {
-            if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
-                LookAround();
-
-            Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
         }
 
         /// <summary>
@@ -203,7 +182,7 @@ namespace UltimateSurvival
 
 #endif
 
-        #endregion
+    #endregion
 
         #region Mobile
 
@@ -216,22 +195,6 @@ namespace UltimateSurvival
         Vector2 frameVelocity;
 
         public FixedTouchField touch;
-
-#if !UNITY_EDITOR
-
-    private void Update()
-    {
-        Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
-        Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-        frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-        velocity += frameVelocity;
-        velocity.y = Mathf.Clamp(velocity.y, -90, 90);
-
-        transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
-        character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
-    }
-
-#endif
 
         #endregion
 
