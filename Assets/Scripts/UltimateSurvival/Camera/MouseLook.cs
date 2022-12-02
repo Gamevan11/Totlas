@@ -54,6 +54,16 @@ namespace UltimateSurvival
         private Vector2 m_SmoothMove;
         private List<Vector2> m_SmoothBuffer = new List<Vector2>();
 
+        [Header("   Mobile settings")]
+        [SerializeField] private float sensitivity = 1;
+        [SerializeField] private float smoothing = 1.5f;
+        [SerializeField] private Transform character;
+
+        Vector2 velocity;
+        Vector2 frameVelocity;
+
+        public FixedTouchField touch;
+
 #if UNITY_EDITOR
 
         #region PC
@@ -148,16 +158,6 @@ namespace UltimateSurvival
 
         #region Mobile
 
-        [Header("   Mobile settings")]
-        [SerializeField] private float sensitivity = 1;
-        [SerializeField] private float smoothing = 1.5f;
-        [SerializeField] private Transform character;
-
-        Vector2 velocity;
-        Vector2 frameVelocity;
-
-        public FixedTouchField touch;
-
         private void Update()
         {
             Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
@@ -176,7 +176,7 @@ namespace UltimateSurvival
 
 
 
-        private bool isPC;
+        private bool isPC = false;
 
         private void Awake()
         {
