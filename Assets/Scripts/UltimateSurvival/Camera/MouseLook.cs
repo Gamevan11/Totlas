@@ -156,8 +156,8 @@ namespace UltimateSurvival
 
         private void Awake()
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
 
             #if UNITY_EDITOR
             isPC = true;

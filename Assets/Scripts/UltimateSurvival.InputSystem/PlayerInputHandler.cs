@@ -95,13 +95,6 @@ namespace UltimateSurvival
                     Player.Crouch.TryStop();
             }
 
-            // Attack
-            if (_attack)
-            {
-                openAim = false;
-                Player.AttackOnce.Try();
-            }
-
             // Aim.
             //if (m_Input.GetButtonDown("Aim"))
             //    Player.Aim.TryStart();
@@ -125,6 +118,22 @@ namespace UltimateSurvival
             //        SlotTake = true;
             //        openAim = false;
             //    }
+
+            if (m_Input.GetButtonDown("Attack"))
+            {
+                OnAttackOpen();
+            }
+
+            if (m_Input.GetButtonDown("Aim"))
+            {
+                OnAim();
+            }
+
+            if (m_Input.GetButtonDown("Jump"))
+            {
+                OnJump();
+            }
+
         }
 
         private void OnSucceded_PlaceObject()
@@ -149,18 +158,17 @@ namespace UltimateSurvival
         }
 
         // Атака
-        public void OnAttackOpen() =>
-            _attack = true;
-
-        public void OnAttackClose() =>
-            _attack = false;
+        public void OnAttackOpen()
+        {
+            openAim = false;
+            Player.AttackOnce.Try();
+        }
 
         // Прицел
         public void OnAim()
         {
             // Нажатие на кнопку
             openAim = !openAim;
-            print(openAim);
 
             if (openAim)
                 Player.Aim.TryStart();
