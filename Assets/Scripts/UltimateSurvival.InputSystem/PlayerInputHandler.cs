@@ -17,6 +17,7 @@ namespace UltimateSurvival
         public static bool openAim;
         public static bool SlotTake;
         private bool _attack;
+        private bool isPC = false;
 
         private void Awake()
         {
@@ -49,11 +50,25 @@ namespace UltimateSurvival
              }
 
             // Movement.
-            Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
-            Player.MovementInput.Set(moveInput);
 
             // Look.
-            Player.LookInput.Set(new Vector2(Touch.TouchDist.x, Touch.TouchDist.y));
+
+            #if UNITY_EDITOR
+            isPC = true;
+            #endif
+
+            if (!isPC)
+            {
+                Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
+                Player.MovementInput.Set(moveInput);
+
+                Player.LookInput.Set(new Vector2(Touch.TouchDist.x, Touch.TouchDist.y));
+            }
+            else
+            {
+                Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                Player.MovementInput.Set(moveInput);
+            }
 
             // Interact once.
             if (m_Input.GetButtonDown("Interact"))
@@ -88,10 +103,10 @@ namespace UltimateSurvival
             }
 
             // Aim.
-            if (m_Input.GetButtonDown("Aim"))
-                Player.Aim.TryStart();
-            else if (m_Input.GetButtonUp("Aim"))
-                Player.Aim.ForceStop();
+            //if (m_Input.GetButtonDown("Aim"))
+            //    Player.Aim.TryStart();
+            //else if (m_Input.GetButtonUp("Aim"))
+            //    Player.Aim.ForceStop();
 
             if (m_Input.GetButtonDown("Place Object"))
             {

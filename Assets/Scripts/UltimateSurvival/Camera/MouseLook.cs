@@ -6,31 +6,6 @@ namespace UltimateSurvival
 {
 	public class MouseLook : PlayerBehaviour
 	{
-        private void Awake()
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        private void Update()
-        {
-            if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
-                LookAround();
-
-            Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
-
-            //
-
-            //Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
-            //Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-            //frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-            //velocity += frameVelocity;
-            //velocity.y = Mathf.Clamp(velocity.y, -90, 90);
-
-            //transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
-            //character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
-        }
-
         #region PC
 
         [Header("   PC settings")]
@@ -81,7 +56,7 @@ namespace UltimateSurvival
         private Vector2 m_SmoothMove;
         private List<Vector2> m_SmoothBuffer = new List<Vector2>();
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         private void Start()
         {
@@ -89,27 +64,6 @@ namespace UltimateSurvival
             {
                 Debug.LogErrorFormat(this, "Assign the look root in the inspector!", name);
                 enabled = false;
-            }
-
-            InventoryController.Instance.State.AddChangeListener(OnChanged_InventoryState);
-
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-
-        private void OnChanged_InventoryState()
-        {
-            m_InventoryIsOpen = !InventoryController.Instance.IsClosed;
-
-            if (m_InventoryIsOpen)
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
@@ -182,7 +136,7 @@ namespace UltimateSurvival
 
 #endif
 
-    #endregion
+        #endregion
 
         #region Mobile
 
@@ -197,6 +151,63 @@ namespace UltimateSurvival
         public FixedTouchField touch;
 
         #endregion
+
+        private bool isPC = false;
+
+        private void Awake()
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+            #if UNITY_EDITOR
+            isPC = true;
+            #endif
+
+            InventoryController.Instance.State.AddChangeListener(OnChanged_InventoryState);
+
+        }
+
+        private void Update()
+        {
+            if (isPC)
+            {
+                if (Player.ViewLocked.Is(false) && Cursor.lockState == CursorLockMode.Locked && !Player.Sleep.Active && Player.Health.Get() > 0f)
+                    LookAround();
+
+                Player.ViewLocked.Set(Cursor.lockState != CursorLockMode.Locked || Player.SelectBuildable.Active);
+            }
+            else
+            {
+                Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
+                Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
+                frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+                velocity += frameVelocity;
+                velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+
+                transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
+                character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+            }
+
+        }
+
+        private void OnChanged_InventoryState()
+        {
+            if (isPC)
+            {
+                m_InventoryIsOpen = !InventoryController.Instance.IsClosed;
+
+                if (m_InventoryIsOpen)
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+            }
+        }
 
     }
 }
