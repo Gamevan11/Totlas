@@ -87,14 +87,6 @@ namespace UltimateSurvival
             if (Player.Run.Active && !sprintButtonHeld)
                 Player.Run.ForceStop();
 
-            if (m_Input.GetButtonDown("Crouch"))
-            {
-                if (!Player.Crouch.Active)
-                    Player.Crouch.TryStart();
-                else
-                    Player.Crouch.TryStop();
-            }
-
             // Aim.
             //if (m_Input.GetButtonDown("Aim"))
             //    Player.Aim.TryStart();
@@ -119,6 +111,8 @@ namespace UltimateSurvival
             //        openAim = false;
             //    }
 
+            #region PC
+
             if (m_Input.GetButtonDown("Attack"))
             {
                 OnAttackOpen();
@@ -134,6 +128,13 @@ namespace UltimateSurvival
                 OnJump();
             }
 
+            if (m_Input.GetButtonDown("Crouch"))
+            {
+                Crouch();
+            }
+
+            #endregion
+
         }
 
         private void OnSucceded_PlaceObject()
@@ -141,6 +142,13 @@ namespace UltimateSurvival
             Player.CanShowObjectPreview.Set(false);
         }
 
+        public void Crouch()
+        {
+            if (!Player.Crouch.Active)
+                Player.Crouch.TryStart();
+            else
+                Player.Crouch.TryStop();
+        }
 
         // Кнопка прыжка
         public void OnJump()
