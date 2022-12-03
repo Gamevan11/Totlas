@@ -55,8 +55,6 @@ namespace UltimateSurvival
         private List<Vector2> m_SmoothBuffer = new List<Vector2>();
 
         [Header("   Mobile settings")]
-        [SerializeField] private float sensitivity = 1;
-        [SerializeField] private float smoothing = 1.5f;
         [SerializeField] private Transform character;
 
         Vector2 velocity;
@@ -161,8 +159,8 @@ namespace UltimateSurvival
         private void Update()
         {
             Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
-            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-            frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * 1);
+            frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / 1.5f);
             velocity += frameVelocity;
             velocity.y = Mathf.Clamp(velocity.y, -90, 90);
 

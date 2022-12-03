@@ -49,8 +49,6 @@ namespace UltimateSurvival
              		Player.SelectBuildable.TryStop();
              }
 
-            // Movement.
-
             // Look.
 
             #if UNITY_EDITOR
@@ -113,24 +111,27 @@ namespace UltimateSurvival
 
             #region PC
 
-            if (m_Input.GetButtonDown("Attack"))
+            if (isPC)
             {
-                OnAttackOpen();
-            }
+                if (m_Input.GetButtonDown("Attack"))
+                {
+                    OnAttackOpen();
+                }
 
-            if (m_Input.GetButtonDown("Aim"))
-            {
-                OnAim();
-            }
+                if (m_Input.GetButtonDown("Aim"))
+                {
+                    OnAim();
+                }
 
-            if (m_Input.GetButtonDown("Jump"))
-            {
-                OnJump();
-            }
+                if (m_Input.GetButtonDown("Jump"))
+                {
+                    OnJump();
+                }
 
-            if (m_Input.GetButtonDown("Crouch"))
-            {
-                Crouch();
+                if (m_Input.GetButtonDown("Crouch"))
+                {
+                    Crouch();
+                }
             }
 
             #endregion
