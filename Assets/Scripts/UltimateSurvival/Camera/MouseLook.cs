@@ -68,6 +68,9 @@ namespace UltimateSurvival
 
         private void Start()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             if (!m_LookRoot)
             {
                 Debug.LogErrorFormat(this, "Assign the look root in the inspector!", name);
@@ -178,9 +181,6 @@ namespace UltimateSurvival
 
         private void Awake()
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
             #if UNITY_EDITOR
             isPC = true;
             #endif
