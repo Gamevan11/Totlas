@@ -156,6 +156,14 @@ namespace UltimateSurvival
                 Player.Crouch.TryStop();
         }
 
+        public void BuildMenu()
+        {
+            if (!Player.SelectBuildable.Active)
+                Player.SelectBuildable.TryStart();
+            else
+                Player.SelectBuildable.TryStop();
+        }
+
         // Кнопка прыжка
         public void OnJump()
         {
