@@ -1018,42 +1018,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!1 &2009588753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2009588754}
-  m_Layer: 5
-  m_Name: Builds
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2009588754
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009588753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 224190992840372706}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1000010013547136
 GameObject:
   m_ObjectHideFlags: 0
@@ -13417,7 +13381,6 @@ GameObject:
   - component: {fileID: 114519280384648552}
   - component: {fileID: 114927936745085186}
   - component: {fileID: 4801043658888810801}
-  - component: {fileID: 2730376148559845734}
   m_Layer: 5
   m_Name: Stairs (Category)
   m_TagString: Untagged
@@ -13469,7 +13432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13547,30 +13510,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114927936745085186}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &2730376148559845734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042279709860262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1042936473237446
 GameObject:
   m_ObjectHideFlags: 0
@@ -14672,7 +14623,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2009588754}
   - {fileID: 224160961448959958}
   - {fileID: 6081267152620532683}
   m_Father: {fileID: 224669535664679984}
@@ -14705,7 +14655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -14783,17 +14733,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114579374085017568}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &3496617693811189519
 MonoBehaviour:
@@ -18325,7 +18275,6 @@ GameObject:
   - component: {fileID: 114058160915023748}
   - component: {fileID: 114146727849232278}
   - component: {fileID: 7912121455339405358}
-  - component: {fileID: 4187976604882376766}
   m_Layer: 5
   m_Name: Door (Category)
   m_TagString: Untagged
@@ -18376,7 +18325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18454,30 +18403,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114146727849232278}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &4187976604882376766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343301303299936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1345702125401410
 GameObject:
   m_ObjectHideFlags: 0
@@ -18771,8 +18708,7 @@ GameObject:
   - component: {fileID: 222902954192419966}
   - component: {fileID: 114037700451994022}
   - component: {fileID: 114932151151878314}
-  - component: {fileID: 5705729462219893744}
-  - component: {fileID: 1583485024468218229}
+  - component: {fileID: 43074234}
   m_Layer: 5
   m_Name: Wall (Category)
   m_TagString: Untagged
@@ -18825,7 +18761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -18859,7 +18795,7 @@ MonoBehaviour:
   m_Distance: 77.21
   m_Offset: -13
   m_Spacing: 14
---- !u!114 &5705729462219893744
+--- !u!114 &43074234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18903,30 +18839,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114932151151878314}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &1583485024468218229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372033329289578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1373510846786162
 GameObject:
   m_ObjectHideFlags: 0
@@ -19222,7 +19146,6 @@ GameObject:
   - component: {fileID: 114281583173800096}
   - component: {fileID: 114785916113115856}
   - component: {fileID: 8631907477803139196}
-  - component: {fileID: 6777447883467049436}
   m_Layer: 5
   m_Name: Roof (Category)
   m_TagString: Untagged
@@ -19273,7 +19196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -19351,30 +19274,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114785916113115856}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &6777447883467049436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382029625140016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1387753746359358
 GameObject:
   m_ObjectHideFlags: 0
@@ -21705,7 +21616,6 @@ GameObject:
   - component: {fileID: 114348776242936066}
   - component: {fileID: 114491281690120876}
   - component: {fileID: 7405056423203727898}
-  - component: {fileID: 8487940287899281233}
   m_Layer: 5
   m_Name: Floor (Category)
   m_TagString: Untagged
@@ -21756,7 +21666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -21834,30 +21744,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114491281690120876}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &8487940287899281233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530393245609136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1548334738803426
 GameObject:
   m_ObjectHideFlags: 0
@@ -22125,7 +22023,6 @@ GameObject:
   - component: {fileID: 114358718762724354}
   - component: {fileID: 114631184547754078}
   - component: {fileID: 6519363778334081207}
-  - component: {fileID: 124982797929819785}
   m_Layer: 5
   m_Name: Window (Category)
   m_TagString: Untagged
@@ -22176,7 +22073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -22254,30 +22151,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114631184547754078}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &124982797929819785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1575040830786086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1575495514111008
 GameObject:
   m_ObjectHideFlags: 0
@@ -24374,7 +24259,6 @@ GameObject:
   - component: {fileID: 114138154071334708}
   - component: {fileID: 114209894466501060}
   - component: {fileID: 4066406042055372819}
-  - component: {fileID: 468836000624550877}
   m_Layer: 5
   m_Name: Other (Category)
   m_TagString: Untagged
@@ -24428,7 +24312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9411765, g: 0.8130773, b: 0.09688579, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -24506,30 +24390,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2730376148559845734}
-        m_TargetAssemblyTypeName: OpenAllBuilds, Assembly-CSharp
-        m_MethodName: SetActive
-        m_Mode: 1
+      - m_Target: {fileID: 114209894466501060}
+        m_TargetAssemblyTypeName: UltimateSurvival.GUISystem.BuildingCategory, Assembly-CSharp
+        m_MethodName: set_ShowPieces
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &468836000624550877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779762883295688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1b75a0bd00dc34d96bc1ce7665ba01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1783325881938800
 GameObject:
   m_ObjectHideFlags: 0
@@ -27231,7 +27103,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 224190992840372706}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -58722,7 +58594,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 224190992840372706}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
