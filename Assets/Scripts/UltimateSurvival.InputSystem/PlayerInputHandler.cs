@@ -132,8 +132,13 @@ namespace UltimateSurvival
             {
                 Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
                 Player.MovementInput.Set(moveInput);
+            }
 
-                Player.LookInput.Set(new Vector2(Touch.TouchDist.x, Touch.TouchDist.y));
+
+            if (_attack)
+            {
+                openAim = false;
+                Player.AttackOnce.Try();
             }
 
         }
@@ -169,14 +174,12 @@ namespace UltimateSurvival
         // Атака
         public void OnAttackOpen()
         {
-            openAim = false;
-            Player.AttackOnce.Try();
+            _attack = true;
         }
 
         public void OnAttackClose()
         {
-            openAim = true;
-            //Player.AttackContinuously.;
+            _attack = false;
         }
 
         // Прицел

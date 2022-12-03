@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 namespace UltimateSurvival.GUISystem
 {
@@ -91,7 +92,7 @@ namespace UltimateSurvival.GUISystem
 		private Image m_ItemIcon;
 
 		[SerializeField]
-		private Text m_StackDisplayer;
+		private TMP_Text m_StackDisplayer;
 
 		[SerializeField]
 		private DurabilityBar m_DurabilityBar;
