@@ -55,6 +55,20 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void YouTube()
+    {
+        Application.OpenURL("https://youtube.com/@totlassurvivalafternuclear4137");
+    }
+
+    public void Discjrd()
+    {
+        Application.OpenURL("https://discord.gg/j3QfkTKtnu");
+    }
+
+    public void Telegram()
+    {
+        Application.OpenURL("https://t.me/totlas_Gamevan");
+    }
 
     // Выход из игры
     public void onQuit() => Application.Quit();
