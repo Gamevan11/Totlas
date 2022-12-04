@@ -113,7 +113,7 @@ namespace UltimateSurvival
 
 			if(Physics.Raycast(ray, out hitInfo, m_MaxDistance, m_Mask, QueryTriggerInteraction.Ignore))
 			{
-				var data = SurfaceDatabase.Instance.GetSurfaceData(hitInfo);
+				var data = GameController.SurfaceDatabase.GetSurfaceData(hitInfo);
 
 				float currentSpeed = m_Rigidbody.velocity.magnitude;
 
