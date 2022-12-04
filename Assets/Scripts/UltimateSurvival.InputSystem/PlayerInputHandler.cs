@@ -11,11 +11,13 @@ namespace UltimateSurvival
 	{
         private InputManager m_Input;
 
-        public FloatingJoystick Joystic;
-        public FixedTouchField Touch;
+        [SerializeField] private FloatingJoystick Joystic;
+        [SerializeField] private FixedTouchField Touch;
+        [SerializeField] private GameObject BuildMenuButton;
 
         public static bool openAim;
         public static bool SlotTake;
+
         private bool _attack;
         private bool isPC = false;
 
@@ -132,12 +134,27 @@ namespace UltimateSurvival
             {
                 Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
                 Player.MovementInput.Set(moveInput);
+
+                if (Player.EquippedItem.Get() && Player.EquippedItem.Get().HasProperty("Allows Building"))
+                {
+                    BuildMenuButton.SetActive(true);
+                }
+                else
+                {
+                    if (Player.SelectBuildable.Active)
+                    {
+                        Player.SelectBuildable.TryStop();
+                    }
+
+                    BuildMenuButton.SetActive(false);
+                }
+
+                Player.CanShowObjectPreview.Set(true);
             }
 
 
             if (_attack)
             {
-                openAim = false;
                 Player.AttackOnce.Try();
             }
 

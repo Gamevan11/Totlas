@@ -196,11 +196,7 @@ namespace UltimateSurvival.GUISystem
             m_RefreshAudio.Play2D();
 
             m_CategoryName.text = m_SelectedCategory.CategoryName;
-
-            for (int x = 0; x < m_Categories.Length; x++)
-            {
-                m_Categories[x].ShowPieces = false;
-            }
+            CloseAll();
 
             m_SelectedCategory.ShowPieces = true;
 
@@ -213,13 +209,18 @@ namespace UltimateSurvival.GUISystem
             m_PieceName.text = build.PieceName;
 
             Player.SelectedBuildable.Set(build.BuildableObject);
+            m_SelectPieceAudio.Play2D();
+            CloseAll();
 
+            Player.SelectBuildable.TryStop();
+        }
+
+        public void CloseAll()
+        {
             for (int x = 0; x < m_Categories.Length; x++)
             {
                 m_Categories[x].ShowPieces = false;
             }
-
-            Player.SelectBuildable.TryStop();
         }
 
         #endregion
@@ -270,6 +271,7 @@ namespace UltimateSurvival.GUISystem
 			    }
 			    else
 			    {
+                    CloseAll();
 				    m_Window.Close();
 				    Player.ViewLocked.Set(false);
 
