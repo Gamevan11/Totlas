@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UltimateSurvival.InputSystem;
-using UnityEditor.PackageManager;
 
 namespace UltimateSurvival
 {
