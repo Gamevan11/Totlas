@@ -17,6 +17,11 @@ namespace UltimateSurvival.GUISystem
 		[SerializeField] 
 		private Window m_Window;
 
+		[SerializeField]
+		private RecipeInspector RecipeInspector;
+
+		private bool isOpen = false;
+
 		[Header("Item Info")]
 
 		[SerializeField] 
@@ -81,6 +86,11 @@ namespace UltimateSurvival.GUISystem
 			m_InventoryContainer = Controller.GetContainer("Inventory");
 		}
 
+		public bool GetOpenState()
+		{
+			return isOpen;
+		}
+
 		private void On_Slot_PointerUp(BaseEventData data, Slot slot)
 		{
 			bool shouldOpenUp = 
@@ -91,7 +101,19 @@ namespace UltimateSurvival.GUISystem
 			if(shouldOpenUp)
 			{
 				if(m_Window)
-					m_Window.Open();
+				{
+                    if (!RecipeInspector.GetOpenState())
+                    {
+                        m_Window.Open();
+						isOpen = true;
+                    }
+					else
+					{
+						RecipeInspector.CloseWindow();
+                        m_Window.Open();
+                        isOpen = true;
+                    }
+                }
 
 				InspectedSlot = slot;
 				ShowInfo(slot.CurrentItem);
@@ -236,6 +258,12 @@ namespace UltimateSurvival.GUISystem
 			}
 		}
 
+		public void CloseWindow()
+		{
+            m_Window.Close();
+			isOpen = false;
+        }
+
 		private IEnumerator C_WaitAndSelect()
 		{
 			yield return null;
@@ -248,7 +276,10 @@ namespace UltimateSurvival.GUISystem
 			if(!currentSelected || !selectedSlot || !selectedSlot.HasItem)
 			{
 				if(m_Window)
-					m_Window.Close();
+				{
+                    m_Window.Close();
+                    isOpen = false;
+                }
 		
 				InspectedSlot = null;
 			}
