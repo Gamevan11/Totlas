@@ -97,19 +97,19 @@ namespace UltimateSurvival
 			base.Update();
 
 			// Stamina.
-			// if(Player.Run.Active)
-			// {
-			// 	m_StaminaRegeneration.Pause();
-			// 	ModifyStamina(-m_StaminaDepletionRate * Time.deltaTime);
-			// }
-			// else if(m_StaminaRegeneration.CanRegenerate && Player.Stamina.Get() < 100f)
-			// 	ModifyStamina(m_StaminaRegeneration.RegenDelta);
+			if(Player.Run.Active)
+			{
+				m_StaminaRegeneration.Pause();
+				ModifyStamina(-m_StaminaDepletionRate * Time.deltaTime);
+			}
+			else if(m_StaminaRegeneration.CanRegenerate && Player.Stamina.Get() < 100f)
+				ModifyStamina(m_StaminaRegeneration.RegenDelta);
 
-			// if(!m_StaminaRegeneration.CanRegenerate && Player.Stamina.Is(0f) && Time.time - m_LastHeavyBreathTime > m_BreathingHeavyDuration)
-			// {
-			// 	m_LastHeavyBreathTime = Time.time;
-			// 	m_BreathingHeavyAudio.Play2D();
-			// }
+			if(!m_StaminaRegeneration.CanRegenerate && Player.Stamina.Is(0f) && Time.time - m_LastHeavyBreathTime > m_BreathingHeavyDuration)
+			{
+				m_LastHeavyBreathTime = Time.time;
+				m_BreathingHeavyAudio.Play2D();
+			}
 
 			// Thirst.
 			m_ThirstDepletion.Update(Player.Thirst, Player.ChangeHealth);
@@ -127,9 +127,9 @@ namespace UltimateSurvival
 		private void Start()
 		{
 			// HACK:
-			// Player.Run.AddStartTryer(()=> { m_StaminaRegeneration.Pause(); return Player.Stamina.Get() > 0f; });
+			Player.Run.AddStartTryer(()=> { m_StaminaRegeneration.Pause(); return Player.Stamina.Get() > 0f; });
 
-			// Player.Jump.AddStartListener(()=> ModifyStamina(-m_JumpStaminaTake));
+			Player.Jump.AddStartListener(()=> ModifyStamina(-m_JumpStaminaTake));
 
 			if(m_SleepRestoresHealth)
 				Player.Sleep.AddStopListener(()=> Player.ChangeHealth.Try(new HealthEventData(100f)));

@@ -21,7 +21,7 @@ namespace UltimateSurvival
             if (m_DetachChildren)
                 transform.DetachChildren();
 			
-            DestroyObject(gameObject);
+            Destroy(gameObject);
         }
     }
 }

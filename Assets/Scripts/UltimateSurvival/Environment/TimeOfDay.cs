@@ -113,42 +113,6 @@ namespace UltimateSurvival
 			State.Set(m_InternalState);
 		}
 
-		private void OnGUI()
-		{
-			if(m_ShowGUI)
-			{
-				Rect rect = new Rect(8f, 8f, 128f, 20f);
-				m_StopTime = GUI.Toggle(rect, m_StopTime, "Stop Time?");
-
-				// Manual time control
-				string timeLabel = "Time: " + m_CurrentHour + " ";
-				if(m_NormalizedTime.IsInRangeLimitsIncluded(0.5f, 1f))
-					timeLabel += "PM";
-				else
-					timeLabel += "AM";
-
-				rect.y = rect.yMax + 4f;
-				GUI.Label(rect, timeLabel);
-
-				rect.y = rect.yMax;
-
-				if(m_StopTime)
-					m_NormalizedTime = GUI.HorizontalSlider(rect, m_NormalizedTime, 0f, 1f);
-				else
-					GUI.HorizontalSlider(rect, m_NormalizedTime, 0f, 1f);
-
-				rect.y = rect.yMax;
-				rect.width = 256f;
-				GUI.Label(rect, "Day Duration: " + m_DayDuration + " seconds");
-
-				rect.y = rect.yMax;
-				rect.width = 128f;
-				m_DayDuration = (int)GUI.HorizontalSlider(rect, m_DayDuration, 0, 1000);
-
-				m_TimeIncrement = 1f / m_DayDuration;
-			}
-		}
-
 		private void Update()
 		{
 			// Time loop.

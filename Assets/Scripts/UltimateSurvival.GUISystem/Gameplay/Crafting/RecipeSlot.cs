@@ -18,7 +18,7 @@ namespace UltimateSurvival.GUISystem
 		public event BaseAction E_Deselect;
 
 		/// <summary>  </summary>
-		public event PointerAction PointerUp;	
+		public event PointerAction PointerDown;	
 
 		/// <summary>  </summary>
 		public ItemData Result { get; private set; }
@@ -46,7 +46,7 @@ namespace UltimateSurvival.GUISystem
 		{
 			if(GUIController.Instance.MouseOverSelectionKeeper())
 			{
-				StartCoroutine(C_WaitAndSelect(1));
+				Select();
 				return;
 			}
 
@@ -56,19 +56,11 @@ namespace UltimateSurvival.GUISystem
 			base.OnDeselect (data);
 		}
 
-		public override void OnPointerUp (PointerEventData data)
+		public override void OnPointerDown (PointerEventData data)
 		{
-			base.OnPointerUp (data);
-			if(PointerUp != null)
-				PointerUp(data, this);
-		}
-
-		private IEnumerator C_WaitAndSelect(int waitFrameCount)
-		{
-			for(int i = 0;i < waitFrameCount;i ++)
-				yield return null;
-
-			Select();
+			base.OnPointerDown (data);
+			if(PointerDown != null)
+				PointerDown(data, this);
 		}
 	}
 }

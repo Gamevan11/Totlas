@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,7 +37,7 @@ namespace UltimateSurvival.GUISystem
 			messageObject.SetActive(true);
 			messageObject.transform.SetAsLastSibling();
 
-			Text text = messageObject.GetComponent<Text>();
+			TMP_Text text = messageObject.GetComponent<TMP_Text>();
 			CanvasGroup group = text.GetComponent<CanvasGroup>();
 			if(text && group)
 			{
