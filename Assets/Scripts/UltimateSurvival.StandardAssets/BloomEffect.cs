@@ -179,6 +179,7 @@ namespace UltimateSurvival.StandardAssets
                     }
                     else
                     {
+                        quarterRezColor.MarkRestoreExpected(); // using max blending, RT restore expected
                         Graphics.Blit (secondQuarterRezColor, quarterRezColor, screenBlend, 10);
                     }
                 }
@@ -312,6 +313,7 @@ namespace UltimateSurvival.StandardAssets
         private void AddTo (float intensity_, RenderTexture from, RenderTexture to)
         {
             screenBlend.SetFloat ("_Intensity", intensity_);
+            to.MarkRestoreExpected(); // additive blending, RT restore expected
             Graphics.Blit (from, to, screenBlend, 9);
         }
 
@@ -321,6 +323,7 @@ namespace UltimateSurvival.StandardAssets
             lensFlareMaterial.SetVector ("colorB", new Vector4 (flareColorB.r, flareColorB.g, flareColorB.b, flareColorB.a) * lensflareIntensity);
             lensFlareMaterial.SetVector ("colorC", new Vector4 (flareColorC.r, flareColorC.g, flareColorC.b, flareColorC.a) * lensflareIntensity);
             lensFlareMaterial.SetVector ("colorD", new Vector4 (flareColorD.r, flareColorD.g, flareColorD.b, flareColorD.a) * lensflareIntensity);
+            to.MarkRestoreExpected(); // additive blending, RT restore expected
             Graphics.Blit (from, to, lensFlareMaterial);
         }
 
@@ -341,6 +344,7 @@ namespace UltimateSurvival.StandardAssets
             if (lensFlareVignetteMask)
             {
                 screenBlend.SetTexture ("_ColorBuffer", lensFlareVignetteMask);
+                to.MarkRestoreExpected(); // using blending, RT restore expected
                 Graphics.Blit (from == to ? null : from, to, screenBlend, from == to ? 7 : 3);
             }
             else if (from != to)

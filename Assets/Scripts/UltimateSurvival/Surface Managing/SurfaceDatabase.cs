@@ -59,7 +59,7 @@ namespace UltimateSurvival
 				TerrainData terrainData = terrain.terrainData;
 				float[] textureMix = GetTerrainTextureMix(position, terrainData, terrain.GetPosition());
 				int textureIndex = GetTerrainTextureIndex(position, textureMix);
-				texture = terrainData.terrainLayers[textureIndex].diffuseTexture;
+				texture = terrainData.splatPrototypes[textureIndex].texture;
 			}
 			// If the ground is a normal mesh.
 			else

@@ -23,12 +23,7 @@ namespace UltimateSurvival.GUISystem
 		[SerializeField] 
 		private Window m_Window;
 
-        [SerializeField]
-        private ItemInspector ItemInspector;
-
-        private bool isOpen = false;
-
-        [SerializeField] 
+		[SerializeField] 
 		private int m_MaxCraftAmount = 999;
 
 		[Header("GUI Elements")]
@@ -109,12 +104,7 @@ namespace UltimateSurvival.GUISystem
 			ShowRecipeInfo(m_InspectedItem);
 		}
 
-        public bool GetOpenState()
-        {
-            return isOpen;
-        }
-
-        private void Awake()
+		private void Awake()
 		{
 			if(!m_CraftingList)
 				Debug.LogError("Please assign the Crafting List in the inspector!", this);
@@ -134,7 +124,7 @@ namespace UltimateSurvival.GUISystem
 				{
 					var slot = obj.GetComponent<RecipeSlot>();
 					if(slot)
-						slot.PointerDown += On_Slot_PointerUp;
+						slot.PointerUp += On_Slot_PointerUp;
 				}
 			}
 		}
@@ -151,19 +141,7 @@ namespace UltimateSurvival.GUISystem
 			if(shouldOpenUp)
 			{
 				if(m_Window)
-				{
-					if (!ItemInspector.GetOpenState())
-					{
-                        m_Window.Open();
-						isOpen = true;
-                    }
-					else
-					{
-						ItemInspector.CloseWindow();
-                        m_Window.Open();
-                        isOpen = true;
-                    }
-				}
+					m_Window.Open();
 	
 				InspectedSlot = slot;
 				m_InspectedItem = slot.Result;
@@ -223,18 +201,10 @@ namespace UltimateSurvival.GUISystem
 			StartCoroutine(C_CheckNextSelection());
 		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
-        public void CloseWindow()
-        {
-			m_Window.Close();
-			isOpen = false;
-        }
-
-        private IEnumerator C_CheckNextSelection()
+		/// <summary>
+		/// 
+		/// </summary>
+		private IEnumerator C_CheckNextSelection()
 		{
 			yield return null;
 
@@ -246,10 +216,7 @@ namespace UltimateSurvival.GUISystem
 			if(!currentSelected || !selectedSlot)
 			{
 				if(m_Window)
-				{
-                    m_Window.Close();
-					isOpen = false;
-                }
+					m_Window.Close();
 
 				InspectedSlot = null;
 			}

@@ -22,7 +22,7 @@ namespace UltimateSurvival.Editor
 		private void OnEnable()
 		{
 			Apply();
-            EditorApplication.hierarchyChanged += OnHierarchyChange;
+			EditorApplication.hierarchyWindowChanged += OnHierarchyChange;
 		}
 
 		private void OnHierarchyChange()
@@ -32,7 +32,7 @@ namespace UltimateSurvival.Editor
 
 		private void OnDestroy()
 		{
-            EditorApplication.hierarchyChanged -= OnHierarchyChange;
+			EditorApplication.hierarchyWindowChanged -= OnHierarchyChange;
 		}
 
 		private void Apply()

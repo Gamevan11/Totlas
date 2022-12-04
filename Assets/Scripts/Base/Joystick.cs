@@ -46,7 +46,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         DeadZone = deadZone;
         baseRect = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        cam = canvas.worldCamera;
         if (canvas == null)
             Debug.LogError("The Joystick is not placed inside a canvas");
 
@@ -65,6 +64,10 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     public void OnDrag(PointerEventData eventData)
     {
+        cam = null;
+        if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
+            cam = canvas.worldCamera;
+
         Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
         Vector2 radius = background.sizeDelta / 2;
         input = (eventData.position - position) / (radius * canvas.scaleFactor);

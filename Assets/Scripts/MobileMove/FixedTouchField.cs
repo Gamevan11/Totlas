@@ -10,7 +10,7 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     [HideInInspector]
     protected int PointerId;
     [HideInInspector]
-    public bool Pressed = false;
+    public bool Pressed;
 
     void Update()
     {

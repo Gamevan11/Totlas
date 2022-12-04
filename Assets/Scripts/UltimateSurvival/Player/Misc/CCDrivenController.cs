@@ -193,43 +193,48 @@ namespace UltimateSurvival
 		{
 			// Clamp the input vector's magnitude to 1; If we don't do this, when moving diagonally, the speed will be ~1.4x higher.
 			Vector2 movementInputClamped = Vector2.ClampMagnitude(Player.MovementInput.Get(), 1f);
+	
+			if(InventoryController.Instance.IsClosed)
+			{
+				var currentLadder = Player.NearLadders.Peek();
+				var lookDirection = Player.LookDirection.Get();
 
-            var currentLadder = Player.NearLadders.Peek();
-            var lookDirection = Player.LookDirection.Get();
+				bool facingAwayFromLadder = Vector3.Dot(currentLadder.forward, lookDirection) < 0f;
 
-            bool facingAwayFromLadder = Vector3.Dot(currentLadder.forward, lookDirection) < 0f;
+				bool wantsToGetOffTheLadder = (movementInputClamped.y < 0f && !facingAwayFromLadder) || (movementInputClamped.y > 0f && facingAwayFromLadder);
 
-            bool wantsToGetOffTheLadder = (movementInputClamped.y < 0f && !facingAwayFromLadder) || (movementInputClamped.y > 0f && facingAwayFromLadder);
+				if(Player.IsGrounded.Get() && wantsToGetOffTheLadder)
+					m_DesiredVelocity = transform.forward * movementInputClamped.y * 3f;
+				else
+				{
+					Vector3 leftRightVelocity = currentLadder.right * movementInputClamped.x * m_SpeedOnLadder / 2f;
+					if(facingAwayFromLadder)
+						leftRightVelocity *= -1f;
 
-            if (Player.IsGrounded.Get() && wantsToGetOffTheLadder)
-                m_DesiredVelocity = transform.forward * movementInputClamped.y * 3f;
-            else
-            {
-                Vector3 leftRightVelocity = currentLadder.right * movementInputClamped.x * m_SpeedOnLadder / 2f;
-                if (facingAwayFromLadder)
-                    leftRightVelocity *= -1f;
+					Vector3 directionalVelocity = lookDirection * movementInputClamped.y * m_SpeedOnLadder;
 
-                Vector3 directionalVelocity = lookDirection * movementInputClamped.y * m_SpeedOnLadder;
+					// Calculate the desired velocity on the ladder's plane.
+					Vector3 velocity = leftRightVelocity + directionalVelocity;
 
-                // Calculate the desired velocity on the ladder's plane.
-                Vector3 velocity = leftRightVelocity + directionalVelocity;
+					Vector3 fromDirection = Vector3.ProjectOnPlane(velocity, currentLadder.right);
+					Vector3 toDirection = currentLadder.up * Mathf.Sign(velocity.y);
 
-                Vector3 fromDirection = Vector3.ProjectOnPlane(velocity, currentLadder.right);
-                Vector3 toDirection = currentLadder.up * Mathf.Sign(velocity.y);
+					// Rotate the velocity vector to either point straight up, or straight down, depending on the direction the player is looking.
+					velocity = Quaternion.FromToRotation(fromDirection, toDirection) * velocity;
 
-                // Rotate the velocity vector to either point straight up, or straight down, depending on the direction the player is looking.
-                velocity = Quaternion.FromToRotation(fromDirection, toDirection) * velocity;
+					// And add a little bit of push towards the ladder.
+					if(movementInputClamped.sqrMagnitude > 0f)
+						velocity += currentLadder.forward;
 
-                // And add a little bit of push towards the ladder.
-                if (movementInputClamped.sqrMagnitude > 0f)
-                    velocity += currentLadder.forward;
+					m_DesiredVelocity = velocity;
+				}
+			}
+			else
+				m_DesiredVelocity = Vector3.zero;
 
-                m_DesiredVelocity = velocity;
-            }
-
-            // Calculate the rate at which the current speed should increase / decrease. 
-            // If the player doesn't press any movement button, use the "m_Damping" value, otherwise use "m_Acceleration".
-            float targetAccel = m_DesiredVelocity.sqrMagnitude > 0f ? m_Acceleration : m_Damping;
+			// Calculate the rate at which the current speed should increase / decrease. 
+			// If the player doesn't press any movement button, use the "m_Damping" value, otherwise use "m_Acceleration".
+			float targetAccel = m_DesiredVelocity.sqrMagnitude > 0f ? m_Acceleration : m_Damping;
 
 			m_CurrentVelocity = Vector3.Lerp(m_CurrentVelocity, m_DesiredVelocity, targetAccel * Time.deltaTime); 
 		}
@@ -238,10 +243,10 @@ namespace UltimateSurvival
 		{
 			CalculateDesiredVelocity();
 
-			bool canMove = true;
+			bool inventoryIsClosed = InventoryController.Instance.IsClosed;
 
 			// If the inventory is open, the target velocity should be 0, so the character stops.
-			Vector3 targetVelocity = canMove ? m_DesiredVelocity : Vector3.zero;
+			Vector3 targetVelocity = inventoryIsClosed ? m_DesiredVelocity : Vector3.zero;
 
 			// Make sure to lower the speed when moving on steep surfaces.
 			float surfaceAngle = Vector3.Angle(Vector3.up, m_LastSurfaceNormal);

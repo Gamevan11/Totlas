@@ -1,10 +1,10 @@
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UltimateSurvival.StandardAssets
 {
-    [RequireComponent(typeof (TMP_Text))]
+    [RequireComponent(typeof (Text))]
     public class FPSDisplayer : MonoBehaviour
     {
         const float fpsMeasurePeriod = 0.5f;
@@ -12,13 +12,15 @@ namespace UltimateSurvival.StandardAssets
         private float m_FpsNextPeriod = 0;
         private int m_CurrentFps;
         const string display = "{0} FPS";
-        private TMP_Text m_Text;
+        private Text m_Text;
 
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
             m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;
-            m_Text = GetComponent<TMP_Text>();
+            m_Text = GetComponent<Text>();
+            m_Text.enabled = Options.FpsToggle.isOn;
         }
 
 
