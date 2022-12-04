@@ -165,6 +165,14 @@ namespace UltimateSurvival
             Player.CanShowObjectPreview.Set(false);
         }
 
+        public void Build()
+        {
+            if (Player.CanShowObjectPreview.Is(true))
+            {
+                Player.PlaceObject.Try();
+            }
+        }
+
         public void Crouch()
         {
             if (!Player.Crouch.Active)
