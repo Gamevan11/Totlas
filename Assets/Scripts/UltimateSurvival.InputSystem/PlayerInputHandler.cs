@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UltimateSurvival.InputSystem;
+using UnityEditor.PackageManager;
 
 namespace UltimateSurvival
 {
@@ -11,11 +12,18 @@ namespace UltimateSurvival
 	{
         private InputManager m_Input;
 
+        [SerializeField] private Camera _camera;
         [SerializeField] private FloatingJoystick Joystic;
         [SerializeField] private FixedTouchField Touch;
+
         [SerializeField] private GameObject BuildMenuButton;
         [SerializeField] private GameObject PlaceButton;
         [SerializeField] private GameObject ShotButton;
+
+        [SerializeField] private GameObject InteractButton;
+        [SerializeField] private GameObject PickupButton;
+
+        [SerializeField] private LayerMask RayLayer;
 
         public static bool openAim;
         public static bool SlotTake;
@@ -166,6 +174,39 @@ namespace UltimateSurvival
                 Player.AttackOnce.Try();
             }
 
+            var ray = _camera.ViewportPointToRay(Vector2.one * 0.5f);
+            RaycastHit hitInfo;
+
+            if (Physics.Raycast(ray, out hitInfo, 2f, RayLayer, QueryTriggerInteraction.Ignore))
+            {
+                var raycastData = new RaycastData(hitInfo);
+
+                if (raycastData.InteractableObject && hitInfo.collider.GetComponent<ItemPickup>())
+                {
+                    PickupButton.SetActive(true);
+                    InteractButton.SetActive(false);
+                }
+                else if(raycastData.InteractableObject)
+                {
+                    InteractButton.SetActive(true);
+                    PickupButton.SetActive(false);
+                }
+                else
+                {
+                    InteractButton.SetActive(false);
+                    PickupButton.SetActive(false);
+                }
+
+            }
+            else
+            {
+                PickupButton.SetActive(false);
+                InteractButton.SetActive(false);
+            }
+
+            // Interact continuously.
+            //Player.InteractContinuously.Set(m_Input.GetButton("Interact"));
+
         }
 
         private void OnSucceded_PlaceObject()
@@ -179,6 +220,11 @@ namespace UltimateSurvival
                 Player.Crouch.TryStart();
             else
                 Player.Crouch.TryStop();
+        }
+
+        public void Interact()
+        {
+            Player.InteractOnce.Try();
         }
 
         public void Build()

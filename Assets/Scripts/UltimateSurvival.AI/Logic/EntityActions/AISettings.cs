@@ -59,7 +59,7 @@ namespace UltimateSurvival.AI
 				var col = entity.GetComponent<Collider>();
 				if(col != null)
 				{
-					var data = SurfaceDatabase.Instance.GetSurfaceData(col, entity.transform.position + Vector3.up, 0);
+					var data = GameController.SurfaceDatabase.GetSurfaceData(col, entity.transform.position + Vector3.up, 0);
 					if(data != null)
 						data.PlaySound(ItemSelectionMethod.RandomlyButExcludeLast, SoundType.Hit, 1f, entity.transform.position + Vector3.up * 1.5f);
 				}
