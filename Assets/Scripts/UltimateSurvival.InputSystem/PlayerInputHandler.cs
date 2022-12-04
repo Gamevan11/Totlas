@@ -13,7 +13,10 @@ namespace UltimateSurvival
 
         [SerializeField] private FloatingJoystick Joystic;
         [SerializeField] private FixedTouchField Touch;
+
         [SerializeField] private GameObject BuildMenuButton;
+        [SerializeField] private GameObject PlaceButton;
+        [SerializeField] private GameObject ShotButton;
 
         public static bool openAim;
         public static bool SlotTake;
@@ -135,8 +138,11 @@ namespace UltimateSurvival
                 Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
                 Player.MovementInput.Set(moveInput);
 
-                if (Player.EquippedItem.Get() && Player.EquippedItem.Get().HasProperty("Allows Building"))
+                if (Player.EquippedItem.Get() && (Player.EquippedItem.Get().HasProperty("Allows Building") || Player.EquippedItem.Get().ItemData.IsBuildable))
                 {
+                    ShotButton.SetActive(false);
+                    PlaceButton.SetActive(true);
+
                     BuildMenuButton.SetActive(true);
                 }
                 else
@@ -145,6 +151,9 @@ namespace UltimateSurvival
                     {
                         Player.SelectBuildable.TryStop();
                     }
+
+                    ShotButton.SetActive(true);
+                    PlaceButton.SetActive(false);
 
                     BuildMenuButton.SetActive(false);
                 }
