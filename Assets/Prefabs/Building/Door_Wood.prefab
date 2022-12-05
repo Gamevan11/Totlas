@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 114540661769797750}
   - component: {fileID: 114791784087048968}
   - component: {fileID: 114946793207718142}
+  - component: {fileID: 405064194671724994}
   m_Layer: 12
   m_Name: Door_Wood
   m_TagString: Untagged
@@ -204,27 +205,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d030742b8fa2af489865e577184cd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PieceName: Door (Wood)
-  m_RequiredItems:
-  - m_Name: Plank
-    m_Amount: 8
-  m_RotationAxis: {x: 0, y: 1, z: 0}
+  m_PieceName: box.wooden.large
+  m_RequiredItems: []
+  m_RotationAxis: {x: 0, y: 0, z: 1}
   m_ShowBounds: 1
   m_Bounds:
-    m_Center: {x: -0.55, y: 1.1, z: 0}
-    m_Extent: {x: 0.55, y: 1.1, z: 0.28}
-  m_MainMesh: {fileID: 33169746681881960}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MainMesh: {fileID: 3300000, guid: c653908befdd202498b5a974f696644c, type: 3}
   m_IgnoredRenderers: []
   m_IgnoredColliders: []
-  m_NeededSpace: 30
-  m_SpacesToOccupy: 1e000000
-  m_RequiresSockets: 1
+  m_NeededSpace: 0
+  m_SpacesToOccupy: 
+  m_RequiresSockets: 0
   m_OutOfGroundHeight: 0
   m_AllowUnderTerrainMovement: 0
   m_CheckStability: 1
   m_StabilityCheckMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 513
   m_ShowStabilityBox: 0
   m_StabilityBoxes: []
   m_EnableTP: 0
@@ -233,12 +232,9 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_BuildAudio:
-    m_Sounds:
-    - {fileID: 8300000, guid: a01b1c247d608894494f4ced1b587dd8, type: 3}
-    - {fileID: 8300000, guid: 05fa9993f3289a440a2e87f66eaa7c61, type: 3}
-    - {fileID: 8300000, guid: f1ddc343914eead4b95f947caef1378b, type: 3}
+    m_Sounds: []
     m_VolumeRange: {x: 0.5, y: 0.75}
-    m_PitchRange: {x: 0.7, y: 0.8}
+    m_PitchRange: {x: 0.9, y: 1.1}
   m_PlacementFX: {fileID: 0}
   m_PreviewMat: {fileID: 2100000, guid: 88739ba1aec04fb48a2a807ad6087236, type: 2}
 --- !u!114 &114791784087048968
@@ -285,6 +281,50 @@ MonoBehaviour:
     m_Speed: 10
   m_Resistance: 0.9
   m_AudioSource: {fileID: 0}
+--- !u!114 &405064194671724994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204313964753990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030742b8fa2af489865e577184cd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PieceName: 
+  m_RequiredItems: []
+  m_RotationAxis: {x: 0, y: 0, z: 1}
+  m_ShowBounds: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MainMesh: {fileID: 0}
+  m_IgnoredRenderers: []
+  m_IgnoredColliders: []
+  m_NeededSpace: 0
+  m_SpacesToOccupy: 
+  m_RequiresSockets: 0
+  m_OutOfGroundHeight: 0
+  m_AllowUnderTerrainMovement: 0
+  m_CheckStability: 1
+  m_StabilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ShowStabilityBox: 0
+  m_StabilityBoxes: []
+  m_EnableTP: 0
+  m_ShowTP: 0
+  m_TPBox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_BuildAudio:
+    m_Sounds: []
+    m_VolumeRange: {x: 0.5, y: 0.75}
+    m_PitchRange: {x: 0.9, y: 1.1}
+  m_PlacementFX: {fileID: 0}
+  m_PreviewMat: {fileID: 0}
 --- !u!1 &1760158902376562
 GameObject:
   m_ObjectHideFlags: 0
