@@ -154,9 +154,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4005956830833610}
   - component: {fileID: 114263507805392790}
+  - component: {fileID: 405064194671724994}
   - component: {fileID: 114791784087048968}
   - component: {fileID: 114946793207718142}
-  - component: {fileID: 405064194671724994}
   m_Layer: 12
   m_Name: Door_Wood
   m_TagString: Untagged
@@ -192,6 +192,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540d61251153a6c4a860371c37cd64e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &405064194671724994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204313964753990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d030742b8fa2af489865e577184cd44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PieceName: 
+  m_RequiredItems: []
+  m_RotationAxis: {x: 0, y: 0, z: 1}
+  m_ShowBounds: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MainMesh: {fileID: 33169746681881960}
+  m_IgnoredRenderers: []
+  m_IgnoredColliders: []
+  m_NeededSpace: 0
+  m_SpacesToOccupy: 
+  m_RequiresSockets: 0
+  m_OutOfGroundHeight: 0
+  m_AllowUnderTerrainMovement: 0
+  m_CheckStability: 1
+  m_StabilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ShowStabilityBox: 0
+  m_StabilityBoxes: []
+  m_EnableTP: 0
+  m_ShowTP: 0
+  m_TPBox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_BuildAudio:
+    m_Sounds: []
+    m_VolumeRange: {x: 0.5, y: 0.75}
+    m_PitchRange: {x: 0.9, y: 1.1}
+  m_PlacementFX: {fileID: 0}
+  m_PreviewMat: {fileID: 2100000, guid: 88739ba1aec04fb48a2a807ad6087236, type: 2}
 --- !u!114 &114791784087048968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,50 +280,6 @@ MonoBehaviour:
     m_Speed: 10
   m_Resistance: 0.9
   m_AudioSource: {fileID: 0}
---- !u!114 &405064194671724994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204313964753990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d030742b8fa2af489865e577184cd44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PieceName: 
-  m_RequiredItems: []
-  m_RotationAxis: {x: 0, y: 0, z: 1}
-  m_ShowBounds: 0
-  m_Bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MainMesh: {fileID: 0}
-  m_IgnoredRenderers: []
-  m_IgnoredColliders: []
-  m_NeededSpace: 0
-  m_SpacesToOccupy: 
-  m_RequiresSockets: 0
-  m_OutOfGroundHeight: 0
-  m_AllowUnderTerrainMovement: 0
-  m_CheckStability: 1
-  m_StabilityCheckMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ShowStabilityBox: 0
-  m_StabilityBoxes: []
-  m_EnableTP: 0
-  m_ShowTP: 0
-  m_TPBox:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_BuildAudio:
-    m_Sounds: []
-    m_VolumeRange: {x: 0.5, y: 0.75}
-    m_PitchRange: {x: 0.9, y: 1.1}
-  m_PlacementFX: {fileID: 0}
-  m_PreviewMat: {fileID: 0}
 --- !u!1 &1760158902376562
 GameObject:
   m_ObjectHideFlags: 0
