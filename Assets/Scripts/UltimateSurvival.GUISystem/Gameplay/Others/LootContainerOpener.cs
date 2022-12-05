@@ -29,7 +29,6 @@ namespace UltimateSurvival.GUISystem
 				{
 					m_CurLootObject = lootObject;
 					m_ItemContainer.Setup(lootObject.ItemHolders);
-
 					return true;
 				}
 			}

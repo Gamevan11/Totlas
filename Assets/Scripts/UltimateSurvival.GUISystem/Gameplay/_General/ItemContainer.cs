@@ -397,10 +397,11 @@ namespace UltimateSurvival.GUISystem
             OnSlotsDiscarded();
 
             // Enable as many slots as required to satisfy the opened collection.
+
             ActivateSlots(parent, template, Mathf.Clamp(m_ItemHolders.Count, 0, Slots.Count), true);
 
             // If more slots are needed, create them.
-            if (m_ItemHolders.Count > Slots.Count)
+            if (m_ItemHolders.Count >= Slots.Count)
             {
                 int spawnCount = m_ItemHolders.Count - Slots.Count;
 
@@ -421,8 +422,10 @@ namespace UltimateSurvival.GUISystem
 
             //print(string.Format("Slots Data Count: {0} | Slots Count: {1}", m_SlotsData.Count, Slots.Count));
 
-            for (int i = 0; i < m_ItemHolders.Count; i++)
+            for (int i = 0; i < m_ItemHolders.Count; i++) {
                 Slots[i].LinkWithHolder(m_ItemHolders[i]);
+            }
+                
 
             OnSlotsCreated();
         }
