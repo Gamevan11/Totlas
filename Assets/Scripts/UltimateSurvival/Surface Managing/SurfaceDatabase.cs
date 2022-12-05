@@ -96,6 +96,9 @@ namespace UltimateSurvival
 				return renderer.material.mainTexture;
 
 			Mesh mesh = meshCollider.sharedMesh;
+
+			if (!mesh.isReadable) { return null; }
+
 			int materialIndex = -1;
 			int lookupIndex1 = mesh.triangles[triangleIndex * 3];
 			int lookupIndex2 = mesh.triangles[triangleIndex * 3 + 1];
