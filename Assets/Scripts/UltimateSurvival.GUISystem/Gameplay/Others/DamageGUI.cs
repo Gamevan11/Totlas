@@ -94,7 +94,7 @@ namespace UltimateSurvival.GUISystem
 		[SerializeField]
 		[Clamp(0f, 512)]
 		[Tooltip("Damage indicator distance (in pixels) from the screen center.")]
-		private int m_IndicatorDistance = 128;
+		private int m_IndicatorDistance = 180;
 
 		private Vector3 m_LastHitPoint;
 
