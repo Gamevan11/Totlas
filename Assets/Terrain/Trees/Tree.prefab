@@ -85,7 +85,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -132,11 +132,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Cutoff: 0.381
+    - _Cutoff: 0.3
     - _ShadowOffsetScale: 1
-    - _ShadowStrength: 0.623
+    - _ShadowStrength: 0.6
     - _SquashAmount: 1
-    - _TranslucencyViewDependency: 0.217
+    - _TranslucencyViewDependency: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _TranslucencyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -468,9 +468,9 @@ MonoBehaviour:
     adaptiveLODQuality: 0.05
     shadowTextureQuality: 3
     enableWelding: 1
-    enableAmbientOcclusion: 1
+    enableAmbientOcclusion: 0
     enableMaterialOptimize: 1
-    aoDensity: 0
+    aoDensity: 1
     rootSpread: 0
     groundOffset: 0
     rootMatrix:
