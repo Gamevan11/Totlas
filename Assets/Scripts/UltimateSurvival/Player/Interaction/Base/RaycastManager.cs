@@ -27,15 +27,18 @@ namespace UltimateSurvival
 		{
 			Player.InteractOnce.SetTryer(Try_InteractOnce);
 			Player.Sleep.AddStartListener(()=> Player.RaycastData.Set(null));
-		}
+        }
 
-		private bool Try_InteractOnce()
+        private bool Try_InteractOnce()
 		{
-			var raycastData = Player.RaycastData.Get();
-			if(raycastData)
+            var raycastData = Player.RaycastData.Get();
+
+            if (raycastData)
 			{
-				if(raycastData.ObjectIsInteractable)
+				if (raycastData.ObjectIsInteractable) 
+				{
 					raycastData.InteractableObject.OnInteract(Player);
+				}
 			}
 
 			return true;
@@ -75,5 +78,5 @@ namespace UltimateSurvival
 			bool isNearObject = (Player.RaycastData.Get() && Player.RaycastData.Get().HitInfo.distance < m_TooCloseThreeshold);
 			Player.IsCloseToAnObject.Set(isNearObject);
 		}
-	}
+    }
 }

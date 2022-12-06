@@ -144,12 +144,18 @@ namespace UltimateSurvival
                 Vector2 moveInput = new Vector2(Joystic.Horizontal, Joystic.Vertical);
                 Player.MovementInput.Set(moveInput);
 
-                if (Player.EquippedItem.Get() && (Player.EquippedItem.Get().HasProperty("Allows Building") || Player.EquippedItem.Get().ItemData.IsBuildable))
+                if (Player.EquippedItem.Get() && Player.EquippedItem.Get().HasProperty("Allows Building"))
                 {
-                    PlaceButton.SetActive(true);
-                    ShotButton.SetActive(false);
-
-                    BuildMenuButton.SetActive(true);
+                    if (Player.EquippedItem.Get().ItemData.IsBuildable)
+                    {
+                        PlaceButton.SetActive(true);
+                        ShotButton.SetActive(false);
+                        BuildMenuButton.SetActive(false);
+                    }
+                    else
+                    {
+                        BuildMenuButton.SetActive(true);
+                    }
                 }
                 else
                 {
