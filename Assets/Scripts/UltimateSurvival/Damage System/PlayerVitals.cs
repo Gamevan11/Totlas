@@ -96,15 +96,6 @@ namespace UltimateSurvival
 		{
 			base.Update();
 
-			// Stamina.
-			if(Player.Run.Active)
-			{
-				m_StaminaRegeneration.Pause();
-				ModifyStamina(-m_StaminaDepletionRate * Time.deltaTime);
-			}
-			else if(m_StaminaRegeneration.CanRegenerate && Player.Stamina.Get() < 100f)
-				ModifyStamina(m_StaminaRegeneration.RegenDelta);
-
 			if(!m_StaminaRegeneration.CanRegenerate && Player.Stamina.Is(0f) && Time.time - m_LastHeavyBreathTime > m_BreathingHeavyDuration)
 			{
 				m_LastHeavyBreathTime = Time.time;
@@ -127,19 +118,8 @@ namespace UltimateSurvival
 		private void Start()
 		{
 			// HACK:
-			Player.Run.AddStartTryer(()=> { m_StaminaRegeneration.Pause(); return Player.Stamina.Get() > 0f; });
-
-			Player.Jump.AddStartListener(()=> ModifyStamina(-m_JumpStaminaTake));
-
 			if(m_SleepRestoresHealth)
 				Player.Sleep.AddStopListener(()=> Player.ChangeHealth.Try(new HealthEventData(100f)));
-		}
-
-		private void ModifyStamina(float delta)
-		{
-			float stamina = Player.Stamina.Get() + delta;
-			stamina = Mathf.Clamp(stamina, 0f, 100f);
-			Player.Stamina.Set(stamina);
 		}
 	}
 }

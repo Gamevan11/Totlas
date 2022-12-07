@@ -155,7 +155,7 @@ namespace UltimateSurvival
 				initialSlot.Refresh();
 			}
 			// If the player didn't drop it on a slot...
-			else
+			else if(objectUnderPointer == null)
 			{
 				if(PlayerDroppedItem != null)
 					PlayerDroppedItem(collection, initialSlot, m_DraggedItem);
@@ -163,6 +163,10 @@ namespace UltimateSurvival
 				if(!InventoryController.Instance.Try_DropItem(m_DraggedItem))
 					collection.TryAddItem(m_DraggedItem);
 			}
+			else
+			{
+                PutItemBack(initialSlot);
+            }
 
 			Destroy(m_DraggedItemRT.gameObject);
 			m_DraggedItem = null;
