@@ -17,8 +17,10 @@ namespace UltimateSurvival.StandardAssets
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
             m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;
-            m_Text = GetComponent<TMP_Text>();
+            m_Text = GetComponent<Text>();
+            m_Text.enabled = Options.FpsToggle.isOn;
         }
 
 
