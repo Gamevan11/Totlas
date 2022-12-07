@@ -23,7 +23,7 @@ namespace UltimateSurvival
 
         [SerializeField]
         [Tooltip("The higher it is, the faster the camera will rotate.")]
-        private float m_Sensitivity = 5f;
+        private float PC_Sensitivity = 3f;
 
         [SerializeField]
         [Range(0, 20)]
@@ -56,6 +56,10 @@ namespace UltimateSurvival
 
         [Header("   Mobile settings")]
         [SerializeField] private Transform character;
+
+        [SerializeField]
+        [Tooltip("The higher it is, the faster the camera will rotate.")]
+        private float Mobile_Sensitivity = 0.5f;
 
         Vector2 velocity;
         Vector2 frameVelocity;
@@ -93,8 +97,8 @@ namespace UltimateSurvival
         {
             CalculateMouseInput(Time.deltaTime);
 
-            m_LookAngles.x += m_CurrentMouseLook.x * m_Sensitivity * (m_Invert ? 1f : -1f);
-            m_LookAngles.y += m_CurrentMouseLook.y * m_Sensitivity;
+            m_LookAngles.x += m_CurrentMouseLook.x * PC_Sensitivity * (m_Invert ? 1f : -1f);
+            m_LookAngles.y += m_CurrentMouseLook.y * PC_Sensitivity;
 
             m_LookAngles.x = ClampAngle(m_LookAngles.x, m_DefaultLookLimits.x, m_DefaultLookLimits.y);
 
@@ -162,7 +166,7 @@ namespace UltimateSurvival
         private void Update()
         {
             Vector2 mouseDelta = new Vector2(touch.TouchDist.x, touch.TouchDist.y);
-            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * 1);
+            Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * Mobile_Sensitivity);
             frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / 1.5f);
             velocity += frameVelocity;
             velocity.y = Mathf.Clamp(velocity.y, -90, 90);

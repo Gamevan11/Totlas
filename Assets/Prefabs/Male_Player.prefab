@@ -8340,13 +8340,14 @@ MonoBehaviour:
   m_LookRoot: {fileID: 4000011614089110}
   m_PlayerRoot: {fileID: 4000013156687574}
   m_Invert: 0
-  m_Sensitivity: 5
+  PC_Sensitivity: 5
   m_SmoothSteps: 10
   m_SmoothWeight: 0.6
   m_RollAngle: 3
   m_RollSpeed: 3
   m_DefaultLookLimits: {x: -70, y: 80}
   character: {fileID: 4000013156687574}
+  Mobile_Sensitivity: 0.5
   touch: {fileID: 0}
 --- !u!114 &114062610735003194
 MonoBehaviour:
@@ -12665,7 +12666,7 @@ Animator:
   m_GameObject: {fileID: 1000013928989056}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 77489154fe6edec468aaa5a234832637, type: 3}
-  m_Controller: {fileID: 22100000, guid: 3bb39a930f4d48842b338873efb87633, type: 2}
+  m_Controller: {fileID: 22100000, guid: 25fba453ea7b28348a1366e7cfcd9d87, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32423,7 +32424,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1025
   m_MaxDistance: 150
-  m_FireDuration: 0.8
+  m_FireDuration: 0.6
   m_BurstLength: 3
   m_BurstDuration: 0.3
   m_BurstPause: 0.35
@@ -55616,7 +55617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7833200561686969298
 Transform:
   m_ObjectHideFlags: 0
@@ -55888,12 +55889,12 @@ MonoBehaviour:
   m_MaxLandSpeed: 12
   m_IdleOffset:
     m_LerpSpeed: 7
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: -0.15, y: 0.15, z: -0.4}
     m_Rotation: {x: 0, y: 0, z: 0}
   m_RunOffset:
     m_LerpSpeed: 4
-    m_Position: {x: 0.05, y: -0.2, z: 0}
-    m_Rotation: {x: 0, y: 5, z: 0}
+    m_Position: {x: -0.15, y: 0.15, z: -0.4}
+    m_Rotation: {x: 0, y: 0, z: 0}
   m_AimOffset:
     m_LerpSpeed: 5
     m_Position: {x: 0, y: 0, z: 0}
@@ -55922,7 +55923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3979b3b57ab23049a6252fdde3f2ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ObjectName: Stone Hatchet
+  m_ObjectName: w_rock
   m_TargetFOV: 45
   m_UseWhileNearObjects: 1
   m_EventHandler: {fileID: 5356356599653713209}
@@ -57743,7 +57744,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 98185acfa3b604e4ab66da6fce5e7ce3, type: 2}
+      objectReference: {fileID: 22100000, guid: 3bb39a930f4d48842b338873efb87633,
+        type: 2}
     - target: {fileID: 137090085243630954, guid: f61971a47399bac4685d04dc552e1b2c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

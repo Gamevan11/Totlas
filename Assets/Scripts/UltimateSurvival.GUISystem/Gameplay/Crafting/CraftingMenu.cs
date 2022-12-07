@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ namespace UltimateSurvival.GUISystem
 		private GameObject m_SelectionHighlight;
 
 		[SerializeField] 
-		private Text m_CategoryName;
+		private TMP_Text m_CategoryName;
 
 		private CraftingCategory[] m_Categories;
 		private GameObject m_SpawnedBackground;
