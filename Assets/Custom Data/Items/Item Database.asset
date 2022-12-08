@@ -1680,11 +1680,55 @@ MonoBehaviour:
         m_RequiredItems:
         - m_Name: Stone
           m_Amount: 64
+    - m_Name: Ceiling Light
+      m_DisplayName: 
+      m_Id: 40
+      m_Category: Interactable
+      m_Icon: {fileID: 21300000, guid: c7f93068d0418fd46828669af1b9aa7a, type: 3}
+      m_WorldObject: {fileID: 1521251146636192, guid: 6426b871d19a8814696e12887d082e99,
+        type: 3}
+      m_Descriptions:
+      - "You will respawn at this bag if you die.\nAlso when you sleep, \nthe time
+        will fast-forward until morning comes."
+      m_StackSize: 1
+      m_PropertyValues:
+      - m_Name: Is Placeable
+        m_Type: 0
+        m_Bool: 0
+        m_Int:
+          m_Current: 0
+          m_Default: 0
+        m_IntRange:
+          m_Current: 0
+          m_Min: 0
+          m_Max: 0
+        m_RandomInt:
+          m_Min: 0
+          m_Max: 0
+        m_Float:
+          m_Current: 0
+          m_Default: 0
+        m_FloatRange:
+          m_Current: 0
+          m_Min: 0
+          m_Max: 0
+        m_RandomFloat:
+          m_Min: 0
+          m_Max: 0
+        m_String: 
+        m_Sound: {fileID: 0}
+      m_IsBuildable: 1
+      m_IsCraftable: 1
+      m_Recipe:
+        m_Duration: 1
+        m_RequiredItems:
+        - m_Name: Metal_refined
+          m_Amount: 5
   - m_Name: Tool
     m_Items:
     - m_Name: Axe
       m_DisplayName: 
-      m_Id: 40
+      m_Id: 41
       m_Category: Tool
       m_Icon: {fileID: 21300000, guid: c09f79e4b749be1499da92cf834811ee, type: 3}
       m_WorldObject: {fileID: 1205464364413260, guid: d41364d54e275214fb4a407e07623b94,
@@ -1756,7 +1800,7 @@ MonoBehaviour:
           m_Amount: 6
     - m_Name: Stone Hatchet
       m_DisplayName: 
-      m_Id: 41
+      m_Id: 42
       m_Category: Tool
       m_Icon: {fileID: 21300000, guid: 53ddcddb64e193d488b5681064cdb68e, type: 3}
       m_WorldObject: {fileID: 1141363321156694, guid: 8b124d32581be2044b53d87e7530ff74,
@@ -1830,7 +1874,7 @@ MonoBehaviour:
           m_Amount: 5
     - m_Name: Pickaxe
       m_DisplayName: 
-      m_Id: 42
+      m_Id: 43
       m_Category: Tool
       m_Icon: {fileID: 21300000, guid: bae9b9f2dd7e55b42a8056572dd5a996, type: 3}
       m_WorldObject: {fileID: 1087723769456120, guid: 9fda1a712c34828468a0bdb9ae138166,
@@ -1902,7 +1946,7 @@ MonoBehaviour:
           m_Amount: 5
     - m_Name: Torch
       m_DisplayName: 
-      m_Id: 43
+      m_Id: 44
       m_Category: Tool
       m_Icon: {fileID: 21300000, guid: cadf8666eb65035488dfd176ad914903, type: 3}
       m_WorldObject: {fileID: 1091006355050110, guid: 131f53166877c2245a408564c66e4367,
@@ -1922,7 +1966,7 @@ MonoBehaviour:
           m_Amount: 4
     - m_Name: w_rock
       m_DisplayName: 
-      m_Id: 44
+      m_Id: 45
       m_Category: Tool
       m_Icon: {fileID: 21300000, guid: 73fd1cf624afefc4384163b13adc9471, type: 3}
       m_WorldObject: {fileID: 1190573011660939, guid: ae9621a5ec08b4849b689da987ed5ab9,
@@ -1994,7 +2038,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Wooden Bow
       m_DisplayName: 
-      m_Id: 45
+      m_Id: 46
       m_Category: Bow
       m_Icon: {fileID: 21300000, guid: 0a71fdb2c233de143af4ddc8421445a4, type: 3}
       m_WorldObject: {fileID: 1374783651576932, guid: 8fad3cf2d7635c24892d51587a2e7bb4,
@@ -2093,7 +2137,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Bone Club
       m_DisplayName: 
-      m_Id: 46
+      m_Id: 47
       m_Category: Melee Weapon
       m_Icon: {fileID: 21300000, guid: c7cf849a3056960448472344244d969c, type: 3}
       m_WorldObject: {fileID: 1477048429221436, guid: 3cdb8cdf4557fd641bc67d4a041b12e4,
@@ -2142,7 +2186,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: SAR
       m_DisplayName: 
-      m_Id: 47
+      m_Id: 48
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: 66568397e3ae9284cb4a72e1e81ca4a7, type: 3}
       m_WorldObject: {fileID: 1459405270602488456, guid: 39ac6bcfb39a4034091b92b418663e05,
@@ -2250,7 +2294,7 @@ MonoBehaviour:
           m_Amount: 8
     - m_Name: Revolver
       m_DisplayName: 
-      m_Id: 48
+      m_Id: 49
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: 3fdd3266ea1fca54ca865dca3c5df2f4, type: 3}
       m_WorldObject: {fileID: 1214545671342252, guid: 77b44e2abbf79304498ffd162af7352f,
@@ -2351,7 +2395,7 @@ MonoBehaviour:
           m_Amount: 16
     - m_Name: RevolverSmall
       m_DisplayName: 
-      m_Id: 49
+      m_Id: 50
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: a8fefdf334f6b8346928d969614747f6, type: 3}
       m_WorldObject: {fileID: 983412432613781423, guid: a8b4cdd3e8c5bf5428db1197fc2f7dc7,
@@ -2454,7 +2498,7 @@ MonoBehaviour:
           m_Amount: 18
     - m_Name: Thompson
       m_DisplayName: 
-      m_Id: 50
+      m_Id: 51
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: c6c312f4d653f4a45b522da8de89dd42, type: 3}
       m_WorldObject: {fileID: 7317442353563071069, guid: 1bc09ad91c668f242934e34dd31e48c6,
@@ -2556,7 +2600,7 @@ MonoBehaviour:
           m_Amount: 18
     - m_Name: SMG
       m_DisplayName: 
-      m_Id: 51
+      m_Id: 52
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: e6e58eafd77e67d4ab26064bdbe15cee, type: 3}
       m_WorldObject: {fileID: 2011681481013894215, guid: 16e12b92acff20a4fb50f3eeac9bab8d,
@@ -2658,7 +2702,7 @@ MonoBehaviour:
           m_Amount: 18
     - m_Name: MP5
       m_DisplayName: 
-      m_Id: 52
+      m_Id: 53
       m_Category: Gun
       m_Icon: {fileID: 21300000, guid: 1f03a458000d3e54ba95a3243833726c, type: 3}
       m_WorldObject: {fileID: 5444675471032126311, guid: 2bf6d144a1042034a839d60f7fd09ab7,
@@ -2762,7 +2806,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Arrow
       m_DisplayName: 
-      m_Id: 53
+      m_Id: 54
       m_Category: Ammunition
       m_Icon: {fileID: 21300000, guid: 7bb7acdc09f2eac4cba1aaf3fe564033, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -2780,7 +2824,7 @@ MonoBehaviour:
           m_Amount: 1
     - m_Name: 5.56 Bullet
       m_DisplayName: 
-      m_Id: 54
+      m_Id: 55
       m_Category: Ammunition
       m_Icon: {fileID: 21300000, guid: 3d795c082fd8bb24abd11b150520fe99, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -2800,7 +2844,7 @@ MonoBehaviour:
           m_Amount: 1
     - m_Name: .44 Bullet
       m_DisplayName: 
-      m_Id: 55
+      m_Id: 56
       m_Category: Ammunition
       m_Icon: {fileID: 21300000, guid: 6fec2e0eecbc9c64aa5f995ee42b214e, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -2822,7 +2866,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Bone Helmet
       m_DisplayName: 
-      m_Id: 56
+      m_Id: 57
       m_Category: Head Equipment
       m_Icon: {fileID: 21300000, guid: dc5f1a982da698e4d8d5b87fe0d2c12e, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -2916,7 +2960,7 @@ MonoBehaviour:
           m_Amount: 6
     - m_Name: Leather Helmet
       m_DisplayName: 
-      m_Id: 57
+      m_Id: 58
       m_Category: Head Equipment
       m_Icon: {fileID: 21300000, guid: ed297c40c87ab12449647dd4f60ef22c, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3010,7 +3054,7 @@ MonoBehaviour:
           m_Amount: 6
     - m_Name: Wooden Helmet
       m_DisplayName: 
-      m_Id: 58
+      m_Id: 59
       m_Category: Head Equipment
       m_Icon: {fileID: 21300000, guid: 67986bc2c43266149a3c0d0b708d9fcf, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3108,7 +3152,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Bone Chestplate
       m_DisplayName: 
-      m_Id: 59
+      m_Id: 60
       m_Category: Torso Equipment
       m_Icon: {fileID: 21300000, guid: b499de84f7ef8b64493fcda2facc583d, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3229,7 +3273,7 @@ MonoBehaviour:
           m_Amount: 10
     - m_Name: Leather Chestplate
       m_DisplayName: 
-      m_Id: 60
+      m_Id: 61
       m_Category: Torso Equipment
       m_Icon: {fileID: 21300000, guid: 63985bfe9e276b14e9abc0096bfe5a9a, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3348,7 +3392,7 @@ MonoBehaviour:
           m_Amount: 24
     - m_Name: Wood Chestplate
       m_DisplayName: 
-      m_Id: 61
+      m_Id: 62
       m_Category: Torso Equipment
       m_Icon: {fileID: 21300000, guid: d98add9d41840204bb6b72932d27acf3, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3446,7 +3490,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Bone Leggings
       m_DisplayName: 
-      m_Id: 62
+      m_Id: 63
       m_Category: Legs Equipment
       m_Icon: {fileID: 21300000, guid: d6109e17a8332e943a32703333040fe1, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3542,7 +3586,7 @@ MonoBehaviour:
           m_Amount: 16
     - m_Name: Leather Leggings
       m_DisplayName: 
-      m_Id: 63
+      m_Id: 64
       m_Category: Legs Equipment
       m_Icon: {fileID: 21300000, guid: d4e47e0f744c20643b3f7a1f1faf5515, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3661,7 +3705,7 @@ MonoBehaviour:
           m_Amount: 18
     - m_Name: Wooden Leggings
       m_DisplayName: 
-      m_Id: 64
+      m_Id: 65
       m_Category: Legs Equipment
       m_Icon: {fileID: 21300000, guid: 178f58f414c8d6b4895ae52fc486d032, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3784,7 +3828,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Leather Boots
       m_DisplayName: 
-      m_Id: 65
+      m_Id: 66
       m_Category: Feet Equipment
       m_Icon: {fileID: 21300000, guid: ce5d2d641e89ba648a6c5f9bcf270824, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3878,7 +3922,7 @@ MonoBehaviour:
           m_Amount: 8
     - m_Name: Wooden Sandals
       m_DisplayName: 
-      m_Id: 66
+      m_Id: 67
       m_Category: Feet Equipment
       m_Icon: {fileID: 21300000, guid: 28e48a23ee5198e49a8091e393836089, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
@@ -3976,7 +4020,7 @@ MonoBehaviour:
     m_Items:
     - m_Name: Building Plan
       m_DisplayName: 
-      m_Id: 67
+      m_Id: 68
       m_Category: Other
       m_Icon: {fileID: 21300000, guid: 4ed13529c442856499a83c16e9861855, type: 3}
       m_WorldObject: {fileID: 1466279581668696, guid: 9a7cb5c5cd6a62b45827fa06a6bc33f3,
