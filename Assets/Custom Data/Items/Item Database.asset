@@ -1418,52 +1418,9 @@ MonoBehaviour:
           m_Amount: 12
         - m_Name: Metal Fragment
           m_Amount: 6
-    - m_Name: Furnace
-      m_DisplayName: 
-      m_Id: 34
-      m_Category: Interactable
-      m_Icon: {fileID: 21300000, guid: d8509d258446b8048b08ebdb2d0e7b0d, type: 3}
-      m_WorldObject: {fileID: 1000010762113288, guid: 4806670a612a1484185e2c6d60e11bfa,
-        type: 3}
-      m_Descriptions:
-      - Can be used for cooking, or smelting.
-      m_StackSize: 1
-      m_PropertyValues:
-      - m_Name: Is Placeable
-        m_Type: 0
-        m_Bool: 0
-        m_Int:
-          m_Current: 0
-          m_Default: 0
-        m_IntRange:
-          m_Current: 0
-          m_Min: 0
-          m_Max: 0
-        m_RandomInt:
-          m_Min: 0
-          m_Max: 0
-        m_Float:
-          m_Current: 0
-          m_Default: 0
-        m_FloatRange:
-          m_Current: 0
-          m_Min: 0
-          m_Max: 0
-        m_RandomFloat:
-          m_Min: 0
-          m_Max: 0
-        m_String: 
-        m_Sound: {fileID: 0}
-      m_IsBuildable: 1
-      m_IsCraftable: 1
-      m_Recipe:
-        m_Duration: 120
-        m_RequiredItems:
-        - m_Name: Stone
-          m_Amount: 64
     - m_Name: Anvil
       m_DisplayName: 
-      m_Id: 35
+      m_Id: 34
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: 7636056c200981e4ea24dda5fc6e2147, type: 3}
       m_WorldObject: {fileID: 1754379352814266, guid: 56b38312fa8307c43b9d531f6baf4b50,
@@ -1506,7 +1463,7 @@ MonoBehaviour:
           m_Amount: 64
     - m_Name: Sleeping Bag
       m_DisplayName: 
-      m_Id: 36
+      m_Id: 35
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: 08051a5fa01f1bb4d8408b66fa7537fb, type: 3}
       m_WorldObject: {fileID: 1977068408107232, guid: 9ca5ad5a8629eba42b56d80d84947bf0,
@@ -1550,7 +1507,7 @@ MonoBehaviour:
           m_Amount: 70
     - m_Name: Door_Wood
       m_DisplayName: 
-      m_Id: 37
+      m_Id: 36
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: d90de8588ed45a746b2ea68d1396b86a, type: 3}
       m_WorldObject: {fileID: 1204313964753990, guid: ff6306e10d2a1f5468a64568bed352f6,
@@ -1594,7 +1551,7 @@ MonoBehaviour:
           m_Amount: 70
     - m_Name: Tool Cupboard
       m_DisplayName: 
-      m_Id: 38
+      m_Id: 37
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: 26d194db3e903be4880fc89bf162155f, type: 3}
       m_WorldObject: {fileID: 1550342894632871, guid: f87e8a1dc9c4b424e87f5cd7ba9b0151,
@@ -1638,7 +1595,7 @@ MonoBehaviour:
           m_Amount: 1000
     - m_Name: furnace
       m_DisplayName: 
-      m_Id: 39
+      m_Id: 38
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: 5eb883dabd055ef48826a069367a8dcd, type: 3}
       m_WorldObject: {fileID: 1061660122214045, guid: b0f1d5e34323c3e41955187f1801d634,
@@ -1682,7 +1639,7 @@ MonoBehaviour:
           m_Amount: 64
     - m_Name: Ceiling Light
       m_DisplayName: 
-      m_Id: 40
+      m_Id: 39
       m_Category: Interactable
       m_Icon: {fileID: 21300000, guid: c7f93068d0418fd46828669af1b9aa7a, type: 3}
       m_WorldObject: {fileID: 1521251146636192, guid: 6426b871d19a8814696e12887d082e99,
@@ -1724,6 +1681,52 @@ MonoBehaviour:
         m_RequiredItems:
         - m_Name: Metal_refined
           m_Amount: 5
+    - m_Name: Ladder_Wood
+      m_DisplayName: 
+      m_Id: 40
+      m_Category: Interactable
+      m_Icon: {fileID: 21300000, guid: c7afbbf8530e29f4d9c73a5478cfe9cb, type: 3}
+      m_WorldObject: {fileID: 1022685122959424, guid: 7e6c706f9fd9f844b816db6276df40a8,
+        type: 3}
+      m_Descriptions:
+      - "You will respawn at this bag if you die.\nAlso when you sleep, \nthe time
+        will fast-forward until morning comes."
+      m_StackSize: 1
+      m_PropertyValues:
+      - m_Name: Is Placeable
+        m_Type: 0
+        m_Bool: 0
+        m_Int:
+          m_Current: 0
+          m_Default: 0
+        m_IntRange:
+          m_Current: 0
+          m_Min: 0
+          m_Max: 0
+        m_RandomInt:
+          m_Min: 0
+          m_Max: 0
+        m_Float:
+          m_Current: 0
+          m_Default: 0
+        m_FloatRange:
+          m_Current: 0
+          m_Min: 0
+          m_Max: 0
+        m_RandomFloat:
+          m_Min: 0
+          m_Max: 0
+        m_String: 
+        m_Sound: {fileID: 0}
+      m_IsBuildable: 1
+      m_IsCraftable: 1
+      m_Recipe:
+        m_Duration: 1
+        m_RequiredItems:
+        - m_Name: Log
+          m_Amount: 100
+        - m_Name: rope
+          m_Amount: 2
   - m_Name: Tool
     m_Items:
     - m_Name: Axe
