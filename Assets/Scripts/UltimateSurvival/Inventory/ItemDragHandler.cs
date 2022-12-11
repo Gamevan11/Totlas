@@ -155,7 +155,7 @@ namespace UltimateSurvival
 				initialSlot.Refresh();
 			}
 			// If the player didn't drop it on a slot...
-			else if(objectUnderPointer == null)
+			else if(objectUnderPointer == null || objectUnderPointer.name == "MobileCameraRotate" || objectUnderPointer.name == "Floating Joystick")
 			{
 				if(PlayerDroppedItem != null)
 					PlayerDroppedItem(collection, initialSlot, m_DraggedItem);

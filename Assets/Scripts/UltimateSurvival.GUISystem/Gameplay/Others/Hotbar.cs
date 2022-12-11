@@ -128,6 +128,13 @@ namespace UltimateSurvival.GUISystem
 			
 		private void TrySelectSlot(int index)
 		{
+			SavableItem lastObject = null;
+
+			if (Player.EquippedItem.Get() != null && Player.EquippedItem.Get().HasProperty("Can Aim"))
+			{
+				lastObject = Player.EquippedItem.Get();
+            }
+
 			index = Mathf.Clamp(index, 0, m_HotbarSlots.Count - 1);
 
 			var newSlot = m_HotbarSlots[index];
@@ -147,6 +154,11 @@ namespace UltimateSurvival.GUISystem
 			frameRT.localPosition = Vector2.zero;
 			frameRT.sizeDelta = m_SelectedSlot.GetComponent<RectTransform>().sizeDelta;
 			frameRT.localScale = Vector3.one;
-		}
+
+            if (Player.EquippedItem.Get() == null || (Player.EquippedItem.Get() != null && Player.EquippedItem.Get().HasProperty("Can Aim") && lastObject != Player.EquippedItem.Get()) || ((Player.EquippedItem.Get() != null && !Player.EquippedItem.Get().HasProperty("Can Aim"))))
+            {
+				Player.Aim.ForceStop();
+            }
+        }
 	}
 }

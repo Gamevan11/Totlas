@@ -199,7 +199,7 @@ namespace UltimateSurvival
 
             bool facingAwayFromLadder = Vector3.Dot(currentLadder.forward, lookDirection) < 0f;
 
-            bool wantsToGetOffTheLadder = (movementInputClamped.y < 0f && !facingAwayFromLadder) || (movementInputClamped.y > 0f && facingAwayFromLadder);
+            bool wantsToGetOffTheLadder = (movementInputClamped.y < 0f && facingAwayFromLadder) || (movementInputClamped.y > 0f && !facingAwayFromLadder);
 
             if (Player.IsGrounded.Get() && wantsToGetOffTheLadder)
                 m_DesiredVelocity = transform.forward * movementInputClamped.y * 3f;

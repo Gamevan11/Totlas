@@ -47,9 +47,8 @@ namespace UltimateSurvival
 				if(m_OnDestroySound)
 					GameController.Audio.Play2D(m_OnDestroySound, m_OnDestroyVolume);
 				MessageDisplayer.Instance.PushMessage(string.Format("Picked up <color=yellow>{0}</color> x {1}", ItemToAdd.Name, ItemToAdd.CurrentInStack));
-			}
-
-			Destroy(gameObject);
+                Destroy(gameObject);
+            }
 		}
 
 		private void Awake()

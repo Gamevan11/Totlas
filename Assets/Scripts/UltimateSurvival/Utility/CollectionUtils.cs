@@ -32,7 +32,7 @@ namespace UltimateSurvival
 		/// <summary>
 		/// Tries to add an amount of items in a specific collection.
 		/// </summary>
-		public static void AddItem(ItemData itemData, int amount, List<ItemHolder> itemHolders, List<ItemProperty.Value> customPropertyValues = null)
+		public static bool AddItem(ItemData itemData, int amount, List<ItemHolder> itemHolders, List<ItemProperty.Value> customPropertyValues = null)
 		{
 			int added = 0;
 
@@ -42,13 +42,16 @@ namespace UltimateSurvival
 				int addedNow;
 
 				itemHolders[i].TryAddItem(itemData, amount, out addedNow, customPropertyValues);
-				added += addedNow;
+
+
+                added += addedNow;
 				amount -= addedNow;
 
 				// We added all the items, we can stop now.
 				if(amount == 0)
-					return;
+					return true;
 			}
+			return false;
 		}
 
 		/// <summary>

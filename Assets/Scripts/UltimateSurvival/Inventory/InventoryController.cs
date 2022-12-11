@@ -268,8 +268,10 @@ namespace UltimateSurvival
 						durabilityProp.SetValue(ItemProperty.Type.Float, floatVal);
 
 						if(floatVal.Current <= 0f)
-							m_EquipmentHolders[i].SetItem(null);
-					}
+						{
+                            m_EquipmentHolders[i].SetItem(null);
+                        }
+                    }
 				}
 		}
 

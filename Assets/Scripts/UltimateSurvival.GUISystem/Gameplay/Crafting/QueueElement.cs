@@ -109,8 +109,15 @@ namespace UltimateSurvival.GUISystem
 				}
 
 				// The item was successfully crafted.
-				inventory.TryAddItem(m_Result, 1);
-				m_AmountToCraftRemained --;
+				
+				bool added = inventory.TryAddItem(m_Result, 1);
+
+				if (!added)
+				{
+					InventoryController.Instance.Try_DropItem(new SavableItem(m_Result, 1));
+				}
+
+                m_AmountToCraftRemained --;
 
 				m_ProgressBar.fillAmount = 0f;
 				m_RemainedTime.text = string.Format("{0}s (x{1})", 0, m_AmountToCraftRemained);

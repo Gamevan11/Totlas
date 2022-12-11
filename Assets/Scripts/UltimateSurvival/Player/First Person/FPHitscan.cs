@@ -176,7 +176,10 @@ namespace UltimateSurvival
 				m_Durability.SetValue(ItemProperty.Type.Float, value);
 
 				if(value.Current == 0)
-					Player.DestroyEquippedItem.Try();
+				{
+                    Player.Aim.ForceStop();
+                    Player.DestroyEquippedItem.Try();
+                }
 			}
 
 			GameController.Audio.LastGunshot.Set(new Gunshot(transform.position, Player));

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace UltimateSurvival.Building
 {
@@ -404,6 +406,11 @@ namespace UltimateSurvival.Building
 
             if (piece.PlacementFX)
                 GameObject.Instantiate(piece.PlacementFX, piece.transform.position, piece.transform.rotation);
+
+            if (piece.GetComponent<NavMeshObstacle>() != null)
+            {
+                piece.GetComponent<NavMeshObstacle>().enabled = true;
+            }
 
 			m_LastValidSocket = null;
 			m_HasSocket = false;

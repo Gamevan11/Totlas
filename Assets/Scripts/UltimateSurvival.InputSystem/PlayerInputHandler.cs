@@ -275,13 +275,19 @@ namespace UltimateSurvival
         // Прицел
         public void OnAim()
         {
+            if (!Player.EquippedItem.Get() || !Player.EquippedItem.Get().HasProperty("Can Aim")) {openAim = false; Player.Aim.ForceStop(); ; return; }
+
             // Нажатие на кнопку
             openAim = !openAim;
 
             if (openAim)
+            {
                 Player.Aim.TryStart();
+            }
             else
+            {
                 Player.Aim.ForceStop();
+            }
         }
     }
 }
