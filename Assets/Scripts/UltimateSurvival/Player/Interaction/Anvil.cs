@@ -88,9 +88,10 @@ namespace UltimateSurvival
 			ResultHolder = new ItemHolder();
 
 			InputHolder.Updated.AddListener(On_InputHolderUpdated);
+            ResultHolder.Updated.AddListener(On_InputHolderUpdated);
 
-			// TODO: We shouldn't have access to GUI functions here.
-			m_Inventory = GUIController.Instance.GetContainer("Inventory");
+            // TODO: We shouldn't have access to GUI functions here.
+            m_Inventory = GUIController.Instance.GetContainer("Inventory");
 			m_Inventory.Slot_Refreshed.AddListener(On_InventorySlotRefreshed);
 
 			Repairing.AddStartTryer(TryStart_Repairing);
@@ -139,24 +140,28 @@ namespace UltimateSurvival
 
 		private void On_InputHolderUpdated(ItemHolder holder)
 		{
+			if (ResultHolder.HasItem)
+			{
+                Repairing.ForceStop();
+                return;
+            }
+
 			ItemProperty.Value durabilityProperty = null;
 
-			if(holder.HasItem && holder.CurrentItem.HasProperty("Durability"))
-				durabilityProperty = holder.CurrentItem.GetPropertyValue("Durability");
+			if(InputHolder.HasItem && InputHolder.CurrentItem.HasProperty("Durability"))
+				durabilityProperty = InputHolder.CurrentItem.GetPropertyValue("Durability");
 			
-			if(durabilityProperty != null && holder.CurrentItem.ItemData.IsCraftable && durabilityProperty.Float.Ratio != 1f)
+			if(durabilityProperty != null && InputHolder.CurrentItem.ItemData.IsCraftable && durabilityProperty.Float.Ratio != 1f)
 			{
-				if(holder.CurrentItem.ItemData.IsCraftable)
-				{
-					InputItem.Recipe = holder.CurrentItem.ItemData.Recipe;
-					InputItem.DurabilityProperty = durabilityProperty;
-					CalculateRequiredItems(InputItem.Recipe, InputItem.DurabilityProperty.Float.Ratio);
+                InputItem.Recipe = InputHolder.CurrentItem.ItemData.Recipe;
+                InputItem.DurabilityProperty = durabilityProperty;
+                CalculateRequiredItems(InputItem.Recipe, InputItem.DurabilityProperty.Float.Ratio);
 
-					InputItemReadyForRepair.SetAndForceUpdate(true);
-				
-					return;
-				}
-			}
+				Repairing.ForceStop();
+				Repairing.TryStart();
+
+                return;
+            }
 
 			// If we're here it means the item in the input slot cannot be repaired, or it doesn't exist.
 			//InputItem.DurabilityProperty = null;

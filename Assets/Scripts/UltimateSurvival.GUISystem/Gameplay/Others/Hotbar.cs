@@ -157,7 +157,7 @@ namespace UltimateSurvival.GUISystem
 
             if (Player.EquippedItem.Get() == null || (Player.EquippedItem.Get() != null && Player.EquippedItem.Get().HasProperty("Can Aim") && lastObject != Player.EquippedItem.Get()) || ((Player.EquippedItem.Get() != null && !Player.EquippedItem.Get().HasProperty("Can Aim"))))
             {
-				Player.Aim.ForceStop();
+				FindObjectOfType<PlayerInputHandler>().OnAim();
             }
         }
 	}

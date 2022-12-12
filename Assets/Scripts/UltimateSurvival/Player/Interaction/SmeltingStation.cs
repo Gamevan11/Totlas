@@ -139,15 +139,14 @@ namespace UltimateSurvival
 
             for (int x = 0; x < Names.Count; x++)
             {
-				Debug.Log(data.Name + " " + Names[x] + " " + CanAdd[x]);
-                if (!hasEmptySlots && InputSlot.CurrentItem != null && data != null && data.DisplayName == Names[x] && CanAdd[x])
+                if (!hasEmptySlots && InputSlot.CurrentItem != null && data != null && data.Name == Names[x] && CanAdd[x])
                 {
                     hasSameItem = true;
                     break;
                 }
             }
 
-            if (!hasEmptySlots || (!hasEmptySlots && !hasSameItem))
+            if (!hasEmptySlots && !hasSameItem)
             {
 				forceStop = true;
                 StopBurning();
@@ -166,15 +165,15 @@ namespace UltimateSurvival
 						forceStop = false;
 						StopBurning();
 
-						//if (lastInputItem != null)
-						//{
-      //                      p_BurnTimeProperty = lastInputItem.GetPropertyValue("Burn Time");
-      //                      var burnTime = p_BurnTimeProperty.Float;
-      //                      burnTime.Current = burnTime.Default;
-      //                      p_BurnTimeProperty.SetValue(ItemProperty.Type.Float, burnTime);
-      //                  }
+						if (lastInputItem != null)
+						{
+							p_BurnTimeProperty = lastInputItem.GetPropertyValue("Burn Time");
+							var burnTime = p_BurnTimeProperty.Float;
+							burnTime.Current = burnTime.Default;
+							p_BurnTimeProperty.SetValue(ItemProperty.Type.Float, burnTime);
+						}
 
-                        lastInputItem = InputSlot.CurrentItem;
+						lastInputItem = InputSlot.CurrentItem;
                         lastFuelItem = FuelSlot.CurrentItem;
 
 						m_FuelTimeProperty = FuelSlot.CurrentItem.GetPropertyValue("Fuel Time");
