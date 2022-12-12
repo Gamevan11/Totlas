@@ -75,7 +75,6 @@ namespace UltimateSurvival
 
 		private ItemContainer m_Inventory;
 
-
 		public override void OnInteract(PlayerEventHandler player)
 		{
 			InventoryController.Instance.OpenAnvil.Try(this);
@@ -153,12 +152,13 @@ namespace UltimateSurvival
 			
 			if(durabilityProperty != null && InputHolder.CurrentItem.ItemData.IsCraftable && durabilityProperty.Float.Ratio != 1f)
 			{
+                Repairing.ForceStop();
+
                 InputItem.Recipe = InputHolder.CurrentItem.ItemData.Recipe;
                 InputItem.DurabilityProperty = durabilityProperty;
                 CalculateRequiredItems(InputItem.Recipe, InputItem.DurabilityProperty.Float.Ratio);
 
-				Repairing.ForceStop();
-				Repairing.TryStart();
+                InputItemReadyForRepair.SetAndForceUpdate(true);
 
                 return;
             }
