@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 1591289590349184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.03, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4619412842354298}
@@ -426,6 +426,7 @@ Transform:
   - {fileID: 4329287253057194}
   - {fileID: 4554234944423664}
   - {fileID: 4533591529999520}
+  - {fileID: 5401316504432686245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -648,3 +649,75 @@ MonoBehaviour:
     m_PositionOffset: {x: 0, y: 0, z: 0}
     m_RotationOffset: {x: 0, y: 0, z: 0}
   m_Radius: 0.8
+--- !u!1001 &5396697176891901577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4129151568412676}
+    m_Modifications:
+    - target: {fileID: 1791504508167698, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_Name
+      value: Purlin_Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251166276795498, guid: db1301b4cdf390c4d8114622151363b3,
+        type: 3}
+      propertyPath: m_PieceOffsets.Array.data[1].m_Piece
+      value: 
+      objectReference: {fileID: 114740325338633530}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db1301b4cdf390c4d8114622151363b3, type: 3}
+--- !u!4 &5401316504432686245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4995918891119148, guid: db1301b4cdf390c4d8114622151363b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5396697176891901577}
+  m_PrefabAsset: {fileID: 0}
