@@ -100,6 +100,14 @@ namespace UltimateSurvival
 			m_UpdateInterval = new WaitForSeconds(UPDATE_INTERVAL);
 		}
 
+		private void Update()
+		{
+            if (ResultHolder.HasItem)
+            {
+                Repairing.ForceStop();
+            }
+        }
+
 		private void On_InventorySlotRefreshed(Slot slot)
 		{
 			if(InputItemReadyForRepair.Is(true))
@@ -139,12 +147,6 @@ namespace UltimateSurvival
 
 		private void On_InputHolderUpdated(ItemHolder holder)
 		{
-			if (ResultHolder.HasItem)
-			{
-                Repairing.ForceStop();
-                return;
-            }
-
 			ItemProperty.Value durabilityProperty = null;
 
 			if(InputHolder.HasItem && InputHolder.CurrentItem.HasProperty("Durability"))
