@@ -91,7 +91,7 @@ namespace UltimateSurvival
 			}
 
 			m_EntityThatLaunched = entityThatLaunched;
-			m_Rigidbody.velocity = transform.forward * m_LaunchSpeed;
+			m_Rigidbody.linearVelocity = transform.forward * m_LaunchSpeed;
 			m_Launched = true;
 		}
 
@@ -115,7 +115,7 @@ namespace UltimateSurvival
 			{
 				var data = GameController.SurfaceDatabase.GetSurfaceData(hitInfo);
 
-				float currentSpeed = m_Rigidbody.velocity.magnitude;
+				float currentSpeed = m_Rigidbody.linearVelocity.magnitude;
 
 				if(currentSpeed >= m_PenetrationThreeshold && data != null)
 				{

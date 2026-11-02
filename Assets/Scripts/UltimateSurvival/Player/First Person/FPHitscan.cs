@@ -267,7 +267,7 @@ namespace UltimateSurvival
 			var shell = Instantiate(m_ShellPrefab, m_WeaponRoot.position + m_WeaponRoot.TransformVector(m_ShellSpawnOffset), Random.rotation);
 			var shellRB = shell.GetComponent<Rigidbody>();
 			shellRB.angularVelocity = new Vector3(Random.Range(-m_ShellSpin, m_ShellSpin), Random.Range(-m_ShellSpin, m_ShellSpin), Random.Range(-m_ShellSpin, m_ShellSpin));
-			shellRB.velocity = transform.TransformVector(m_ShellSpawnVelocity);
+			shellRB.linearVelocity = transform.TransformVector(m_ShellSpawnVelocity);
 		}
 	}
 }
